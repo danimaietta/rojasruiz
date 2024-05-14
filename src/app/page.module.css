@@ -11,17 +11,17 @@
 }
   
 .aboutus-container {
-  background-color: var(--header-background);
+  background-color: var(--aboutus-background);
 }
 
 .services-container {
-  background-color: darkslategray;
+  background-color: var(--services-background);
 }
 
 .projects-container {
-  background-color: floralwhite;
+  background-color: var(--projects-background);
 }
 
 .contact-container {
-  background-color: lightyellow;
+  background-color: var(--contact-background);
 }

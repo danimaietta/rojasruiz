@@ -1,6 +1,11 @@
 :root {
   --header-background: rgb(255, 255, 255);
   --header-height: 10vh;
+  --aboutus-background: lightblue;
+  --services-background: rgb(243, 165, 165);
+  --projects-background: floralwhite;
+  --contact-background: lightyellow;
+  --hover-color: aquamarine;
 }
 
 * {
@@ -20,9 +25,16 @@ a {
   text-decoration: none;
 }
 
-button {
-  padding: 0.5rem 1rem;
-  border: 1px solid black;
+span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10vh;
+  padding: 2vh 2vh;
+}
+
+span:selected {
+  background-color: var(--hover-color);
 }
 
 .header {
@@ -36,12 +48,16 @@ button {
   position: fixed;
 }
 
-.header > button {
-  background-color: green;
+.header > span {
+  background-color: var(--header-background);
 }
 
-.header > button:hover {
-  background-color: red;
+.header > span:not(data-scroll='0'):hover{
+  background-color: aquamarine;
+}
+
+.header > span:hover {
+  background-color: var(--hover-color);
   cursor: pointer;
 }
 

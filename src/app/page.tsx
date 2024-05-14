@@ -4,7 +4,7 @@ export default function Home() {
     return (
         <div className={styles['main-container']}>
             <div className={styles['aboutus-container']}>
-                <h1>¿Quienes somos?</h1>
+                <h1>¿Quiénes somos?</h1>
                 <p>
                     Una empresa dedicada a la construcción de proyectos 
                     de ingeniería civil, con más de 15 años de experiencia 
@@ -27,7 +27,7 @@ export default function Home() {
                 </p>
             </div>
             <div className={styles['contact-container']}>
-                <h1>Contactenos</h1>
+                <h1>Contáctenos</h1>
                 <p>
                     Puede contactarnos a través de nuestro correo 
                     electrónico o visitarnos en nuestras oficinas.
