@@ -1,0 +1,27 @@
+.aboutus-container, 
+.services-container, 
+.projects-container, 
+.contact-container  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+}
+  
+.aboutus-container {
+  background-color: var(--header-background);
+}
+
+.services-container {
+  background-color: darkslategray;
+}
+
+.projects-container {
+  background-color: floralwhite;
+}
+
+.contact-container {
+  background-color: lightyellow;
+}
