@@ -1,11 +1,14 @@
 :root {
   --header-background: rgb(255, 255, 255);
-  --header-height: 10vh;
-  --aboutus-background: lightblue;
-  --services-background: rgb(243, 165, 165);
+  --aboutus-background: rgb(243, 238, 211);
+  --services-background: rgb(247, 245, 237);
   --projects-background: floralwhite;
   --contact-background: lightyellow;
-  --hover-color: aquamarine;
+  --text-highlight: rgb(182, 169, 99);
+  --text-whatsapp: rgb(37, 211, 102);
+  --hover-color: rgb(240, 240, 240);
+  --header-height: 10vh;
+  --container-height: 100vh;
 }
 
 * {
@@ -29,18 +32,16 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 10vh;
+  height: var(--header-height);
   padding: 2vh 2vh;
-}
-
-span:selected {
-  background-color: var(--hover-color);
 }
 
 .header {
   align-items: center;
   background-color: var(--header-background);
   display: flex;
+  font-family: Raleway, sans-serif;
+  font-size: 0.85rem;
   height: var(--header-height);
   width: 100%;
   justify-content: space-between;
@@ -48,19 +49,41 @@ span:selected {
   position: fixed;
 }
 
-.header > span {
+.options > span {
   background-color: var(--header-background);
 }
 
-.header > span:not(data-scroll='0'):hover{
-  background-color: aquamarine;
-}
-
-.header > span:hover {
+.options > span:hover {
   background-color: var(--hover-color);
   cursor: pointer;
 }
 
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+}
+
 .logo {
   height: var(--header-height);
+}
+
+.active {
+  color: var(--text-highlight);
+}
+
+.footer {
+  background-color: var(--header-background);
+  display: flex;
+}
+
+.icon {
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.icon-whatsapp:hover {
+  color: var(--text-whatsapp);
 }

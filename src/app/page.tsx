@@ -1,15 +1,13 @@
+'use client'
+
 import styles from './page.module.css'
+import About from './aboutUs/page'
 
 export default function Home() {
     return (
         <div className={styles['main-container']}>
             <div className={styles['aboutus-container']}>
-                <h1>¿Quiénes somos?</h1>
-                <p>
-                    Una empresa dedicada a la construcción de proyectos 
-                    de ingeniería civil, con más de 15 años de experiencia 
-                    en el mercado.
-                </p>
+                <About />
             </div>
             <div className={styles['services-container']}>
                 <h1>Servicios</h1>
@@ -33,11 +31,25 @@ export default function Home() {
                     electrónico o visitarnos en nuestras oficinas.
                 </p>
                 <form className={styles['contact-form']}>
+                    <p>Nombre</p>
                     <input type='text' placeholder='Nombre'></input>
+                    <p>Correo</p>
                     <input type='text' placeholder='Correo'></input>
-                    <input type='text' placeholder='Telefono'></input>
-                    <textarea placeholder='Mensaje'></textarea>
-                    <button>Enviar</button>
+                    <p>Teléfono</p>
+                    <input type='text' placeholder='Teléfono'></input>
+                    <p>Que servicio necesita?</p>
+                    <select>
+                        <option value="construcción">Instalación</option>
+                        <option value="remodelación">Remodelación</option>
+                        <option value="asesoría">Asesoría</option>
+                        <option value="verificación">Verificación Eléctrica</option>
+                        <option value="mantenimiento">Mantenimiento</option>
+                        <option value="diseño">Diseño Eléctrico</option>
+                        <option value="mantenimiento">Red Cableado</option>
+                    </select>
+                    <p>Mensaje</p>
+                    <textarea placeholder='Dejenos un mensaje'></textarea>
+                    <button onClick={e => e.preventDefault()}>Enviar</button>
                 </form>
             </div>
         </div>
