@@ -31,7 +31,7 @@ export default function RootLayout({
         });
 
         return () => document.removeEventListener("scroll", () => {})
-    })
+    }, [])
 
 
     const scrollWindow = (section: string) => () => {
@@ -41,7 +41,6 @@ export default function RootLayout({
         if(section === 'projects') scrollPosition = totalHeight - window.innerHeight * 2
         if(section === 'contact' ) scrollPosition = totalHeight
         window.scrollTo({top: scrollPosition, behavior: 'smooth'});
-        setSelected(section)
     }
 
     return (
