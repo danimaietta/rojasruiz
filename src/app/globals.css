@@ -1,19 +1,20 @@
 :root {
   /* Background */
-  --aboutus-background: rgb(243, 238, 211);
+  --aboutus-background: rgb(21,76,121);
   --contact-background: lightyellow;
   --header-background: rgb(255, 255, 255);
   --projects-background: floralwhite;
   --services-background: rgb(247, 245, 237);
   /* Text */
-  --h1-color: rgb(42, 40, 165);
-  --text-highlight: rgb(182, 169, 99);
+  --h1-color: rgb(240, 240, 240);
+  --text-highlight: rgb(255, 255, 255);;
   --text-whatsapp: rgb(37, 211, 102);
   /* Hover */
-  --hover-color: rgb(240, 240, 240);
+  --hover-color: rgb(21, 76, 121);
   /* Width Height */
   --container-height: 100vh;
   --header-height: 10vh;
+  --header-font-size: 0.90rem;
 }
 
 * {
@@ -50,7 +51,7 @@ span {
   align-items: center;
   background-color: var(--header-background);
   display: flex;
-  font-size: 0.85rem;
+  font-size: var(--header-font-size);
   height: var(--header-height);
   justify-content: space-between;
   padding: 1rem;
@@ -59,8 +60,9 @@ span {
   z-index: 1;
 }
 
-.options > span {
+.options > span .active{
   background-color: var(--header-background);
+  color: var(--text-highlight)
 }
 
 .options > span:hover {
@@ -76,11 +78,24 @@ span {
 }
 
 .logo {
+  animation: logo-appear 1s ease-in-out;
   height: var(--header-height);
 }
 
+@keyframes logo-appear {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
 .active {
-  color: var(--text-highlight);
+  background-color: var(--hover-color);
+  color: var(--text-highlight)
 }
 
 .footer {

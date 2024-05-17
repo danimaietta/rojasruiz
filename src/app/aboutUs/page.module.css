@@ -1,19 +1,39 @@
-.aboutUs {
+.aboutUs-container {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
     margin: 5vw;
 }
 
-.aboutUs h1{
-    animation: text-appear 1s ease-in-out;
+.ingElectromecanica {
+    margin-top: 10vh;
+    width: 100VW;
+    height: 114vh;
+    z-index: 0;
+}
+
+.aboutUs-container > p {
     color: var(--h1-color);
+    font-weight: 700;
+    position: absolute;
+}
+
+.aboutUs-container p:nth-child(1) {
+    animation: text-appear 1.5s ease-in-out;
+    top: 15%;
+    left: 03%;
+}
+
+.aboutUs-container p:nth-child(2) {
+    animation: text-appear 10s ease-in-out;
+    top: 65%;
+    left: 03%;
 }
 
 @keyframes text-appear {
     0% {
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateX(-20px);
     }
     100% {
         opacity: 1;

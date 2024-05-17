@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { FaSquareWhatsapp } from 'react-icons/fa6';
 import Image from 'next/image'
 import './globals.css'
@@ -18,7 +19,6 @@ export default function RootLayout({
 
     useEffect(() => {
         document.addEventListener('scroll', () => {
-            console.log(totalHeight - (window.innerHeight) - (window.innerHeight * 0.10));
             if(window.scrollY < window.innerHeight - window.innerHeight * 0.10){
                 setSelected('aboutus')
             } else if(window.scrollY <= totalHeight - (window.innerHeight * 2) - (window.innerHeight * 0.10)){
@@ -47,7 +47,14 @@ export default function RootLayout({
         <html lang='es'>
             <body>
                 <div className='header'>
-                    <Image src={logo} className='logo' alt='Image' width={200} />
+                    <Link href='/pdfView'>
+                    <Image 
+                        src={logo} 
+                        className='logo' 
+                        alt='Image' 
+                        width={200}
+                    />
+                    </Link>
                     <div className='options'>
                         {
                             headerOptions.map((option, index) => {
