@@ -1,0 +1,31 @@
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; 
+    gap: 1rem;
+    width: 50%;
+  }	
+  
+  .contact-form > p {
+    margin: auto auto;
+  }
+
+  .contact-form > input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  
+  .contact-form > textarea {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: 5rem;
+  }
+  
+  .contact-form > button {
+    background-color: var(--hover-color);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }

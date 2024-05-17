@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { FaSquareWhatsapp } from "react-icons/fa6";
+import { FaSquareWhatsapp } from 'react-icons/fa6';
 import Image from 'next/image'
 import './globals.css'
 import logo from '@assets/logo.png'
@@ -12,12 +12,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    const [selected, setSelected] = useState<string>('')
+    const [selected, setSelected] = useState<string>('aboutus')
     const { headerOptions, headerTexts } = constants
-    const totalHeight = window.innerHeight * headerOptions.length
+    const totalHeight = innerHeight * headerOptions.length
 
     useEffect(() => {
-        document.addEventListener("scroll", () => {
+        document.addEventListener('scroll', () => {
             console.log(totalHeight - (window.innerHeight) - (window.innerHeight * 0.10));
             if(window.scrollY < window.innerHeight - window.innerHeight * 0.10){
                 setSelected('aboutus')
@@ -30,7 +30,7 @@ export default function RootLayout({
             }
         });
 
-        return () => document.removeEventListener("scroll", () => {})
+        return () => document.removeEventListener('scroll', () => {})
     }, [])
 
 
@@ -44,10 +44,10 @@ export default function RootLayout({
     }
 
     return (
-        <html lang="es">
+        <html lang='es'>
             <body>
                 <div className='header'>
-                    <Image src={logo} className='logo' alt="Image" width={200} />
+                    <Image src={logo} className='logo' alt='Image' width={200} />
                     <div className='options'>
                         {
                             headerOptions.map((option, index) => {
