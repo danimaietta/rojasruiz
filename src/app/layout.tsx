@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { FaSquareWhatsapp } from 'react-icons/fa6';
+import { IoMenuSharp } from "react-icons/io5";
 import Image from 'next/image'
 import './globals.css'
 import logo from '@assets/logo.png'
@@ -14,16 +15,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
     const [selected, setSelected] = useState<string>('aboutus')
+    const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
     const { headerOptions, headerTexts } = constants
+    const { innerHeight } = window
     const totalHeight = innerHeight * headerOptions.length
 
     useEffect(() => {
         document.addEventListener('scroll', () => {
-            if(window.scrollY < window.innerHeight - window.innerHeight * 0.10){
+            if(scrollY < innerHeight - innerHeight * 0.10){
                 setSelected('aboutus')
-            } else if(window.scrollY <= totalHeight - (window.innerHeight * 2) - (window.innerHeight * 0.10)){
+            } else if(scrollY <= totalHeight - (innerHeight * 2) - (innerHeight * 0.10)){
                 setSelected('services')
-            } else if(window.scrollY <= totalHeight - (window.innerHeight * 1) - (window.innerHeight * 0.10)){
+            } else if(scrollY <= totalHeight - (innerHeight * 1) - (innerHeight * 0.10)){
                 setSelected('projects')
             } else {
                 setSelected('contact')
@@ -37,11 +40,13 @@ export default function RootLayout({
     const scrollWindow = (section: string) => () => {
         let scrollPosition
         if(section === 'aboutus') scrollPosition = 0
-        if(section === 'services') scrollPosition = totalHeight - window.innerHeight * 3
-        if(section === 'projects') scrollPosition = totalHeight - window.innerHeight * 2
+        if(section === 'services') scrollPosition = totalHeight - innerHeight * 3
+        if(section === 'projects') scrollPosition = totalHeight - innerHeight * 2
         if(section === 'contact' ) scrollPosition = totalHeight
-        window.scrollTo({top: scrollPosition, behavior: 'smooth'});
+        scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
+
+    const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu)
 
     return (
         <html lang='es'>
@@ -52,10 +57,15 @@ export default function RootLayout({
                         src={logo} 
                         className='logo' 
                         alt='Image' 
-                        width={200}
                     />
                     </Link>
-                    <div className='options'>
+                    <div className="menu-container">
+                        <IoMenuSharp 
+                            className='icon-menu'
+                            onClick={toggleMobileMenu}
+                        />
+                    </div>
+                    <div className={`options ${showMobileMenu ? 'mobileMenu' : ''}`}>
                         {
                             headerOptions.map((option, index) => {
                                 return (

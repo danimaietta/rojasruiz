@@ -1,0 +1,12 @@
+.slider-container {
+  position: absolute;
+  top: 50vh;
+  right: 10vw;
+  align-items: center;
+  background-color: var(--header-background);
+  border-radius: round;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  width: 50vw;
+}
