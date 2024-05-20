@@ -1,6 +1,6 @@
 import styles from './page.module.css'
 import Image from 'next/image'
-import aboutUs from '@assets/aboutUs.png'
+import aboutUs from '@assets/aboutUs/AboutUs.png'
 import CustomSlider from '@/customSlider/page'
 
 export default function AboutUs() {

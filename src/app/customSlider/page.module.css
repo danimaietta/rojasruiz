@@ -1,12 +1,18 @@
-.slider-container {
+.slider-item {
+  border-radius: 50%;
+  height: var(--about-us-slider-height);
   position: absolute;
-  top: 50vh;
-  right: 10vw;
-  align-items: center;
-  background-color: var(--header-background);
-  border-radius: round;
-  display: flex;
-  height: 50vh;
-  justify-content: center;
-  width: 50vw;
+  width: var(--about-us-slider-width);
+  right: 3vw;
+  top: 25vh;
+  transition: image-appear 1s linear;
+}
+
+@keyframes image-appear {
+  0% {
+      filter: blur(1);
+  }
+  100% {
+      filter: blur(0);
+  }
 }
