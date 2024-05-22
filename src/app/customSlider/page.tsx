@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Image from 'next/image'
 import styles from './page.module.css'
+import { StaticImageData } from "next/image";
 
 interface CustomSliderProps{
-  items: { path: string, caption: string }[]
+  items: { path: StaticImageData, caption: string }[]
 }
 
 const CustomSlider = ({ items }: CustomSliderProps) => {
@@ -13,19 +15,18 @@ const CustomSlider = ({ items }: CustomSliderProps) => {
       setIndex((prevIndex) =>
         prevIndex === items.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
+    }, 7000);
     return () => clearInterval(interval);
   });
 
   return (
-    <div className={styles["slider-container"]}>
-      <div className={styles["slider"]}>
-        <div
-          key={index}
-          className={styles["slider-item"]}
-          style={{ backgroundImage: `url(${items[index].path})` }}
-        />
-      </div>
+    <div className="slider-container">
+      <Image
+        key={index}
+        className={styles['slider-item']}
+        src={items[index].path} 
+        alt={items[index].caption} 
+      />
     </div>
   );
 }

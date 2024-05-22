@@ -1,5 +1,4 @@
 import styles from './page.module.css'
-import Services from '@/services/page'
 
 export default function Contact() {
 
@@ -30,7 +29,6 @@ export default function Contact() {
             <p>Mensaje</p>
             <textarea placeholder='Dejenos un mensaje'></textarea>
             <button onClick={e => e.preventDefault()}>Enviar</button>
-            <Services />
         </form>
       </>
     )

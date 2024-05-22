@@ -1,30 +1,33 @@
 import styles from './page.module.css'
 import Image from 'next/image'
 import aboutUs from '@assets/aboutUs/AboutUs.png'
+import sliderImage1 from '@assets/aboutUs/sliderImage-1.jpg'
+import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
+import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
 import CustomSlider from '@/customSlider/page'
 
 export default function AboutUs() {
 
   const slideImages = [
     {
-      path: 'https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+      path: sliderImage1,
       caption: 'Slide 1'
     },
     {
-      path: 'https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80',
+      path: sliderImage2,
       caption: 'Slide 2'
     },
     {
-      path: 'https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+      path: sliderImage3,
       caption: 'Slide 3'
     },
   ];
 
   return (
     <div className={styles['aboutUs']}>
-        <Image 
+        <Image
           className={styles['aboutUs-image']}
-          src={aboutUs} 
+          src={aboutUs}
           alt="aboutUs" 
         />
         <div className={styles['aboutUs-container']}>

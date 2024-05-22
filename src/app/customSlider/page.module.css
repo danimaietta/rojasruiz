@@ -1,18 +1,19 @@
 .slider-item {
-  border-radius: 50%;
+  border: solid 5px var(--border-image-color);
+  border-radius: 60%;
+  display: block;
   height: var(--about-us-slider-height);
   position: absolute;
-  width: var(--about-us-slider-width);
-  right: 3vw;
+  right: 9vw;
   top: 25vh;
-  transition: image-appear 1s linear;
+  width: var(--about-us-slider-width);
+  animation: example 7s infinite;
 }
 
-@keyframes image-appear {
-  0% {
-      filter: blur(1);
-  }
-  100% {
-      filter: blur(0);
-  }
+@keyframes example {
+  0%   {filter: blur(1px);}
+  25%  {filter: blur(0.5px);}
+  50%  {filter: blur(0px);}
+  75%  {filter: blur(0px);}
+  100% {filter: blur(0px);}
 }
