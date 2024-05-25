@@ -9,11 +9,7 @@ import './globals.css'
 import logo from '@assets/logo.png'
 import constants from '@constants/constants'
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     const [selected, setSelected] = useState<string>('aboutus')
     const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
     const { headerOptions, headerTexts } = constants
