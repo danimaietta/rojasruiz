@@ -1,27 +1,80 @@
 .contact-form {
-    background-color: var(--contact-form-background);
-    border-radius: 5px;
-    border: 1.5px black solid;
-    box-shadow: 5px 10px;
-    display: grid;
-    height: 70vh;
-    margin: 0;
+  background-color: var(--contact-form-background);
+  border-radius: 5px;
+  border: 1.5px black solid;
+  display: grid;
+  height: 65vh;
+  margin: 0;
+  padding: 1rem;
+  width: 30%;
+  animation: contact-form-unhovers 1s;
+  animation-fill-mode: forwards; 
+}
+
+.contact-form:hover {
+  animation: contact-form-hovers 1s;
+  animation-fill-mode: forwards;  
+}
+
+@keyframes contact-form-hovers {
+  0% {
+    box-shadow: 2px 5px;
     padding: 1rem;
-    width: 50%;
   }
+  20% {
+    box-shadow: 4px 10px;
+    padding: 1.04rem;
+  }
+  40% {
+    box-shadow: 6px 15px;
+    padding: 1.08rem;
+  }
+  60% {
+    box-shadow: 8px 20px;
+    padding: 1.12rem;
+  }
+  80% {
+    box-shadow: 10px 25px;
+    padding: 1.16rem;
+  }
+  100% {
+    box-shadow: 12px 30px;
+    padding: 1.2rem;
+  }
+}
+
+@keyframes contact-form-unhovers {
+  0% {
+    box-shadow: 12px 30px;
+    padding: 1.2rem;
+  }
+  20% {
+    box-shadow: 10px 25px;
+    padding: 1.16rem;
+  }
+  40% {
+    box-shadow: 8px 20px;
+    padding: 1.12rem;
+  }
+  60% {
+    box-shadow: 6px 15px;
+    padding: 1.8rem;
+  }
+  80% {
+    box-shadow: 4px 10px;
+    padding: 1.4rem;
+  }
+  100% {
+    box-shadow: 2px 5px;
+    padding: 1rem;
+  }
+}
 
 .contact-form > input,
 .contact-form > p,
-.contact-form > h1,
-.contact-form > select,
+.contact-form > .contact-dropdown,
 .contact-form > textarea {
   margin: 0.5rem 2rem;
-}
-
-.contact-form > h1 {
-  color: var(--contact-h1-color);
-  font-size: 1.5rem;
-  text-align: center;
 }
 
 .contact-form > p {
@@ -31,40 +84,58 @@
 }
 
 .contact-form > input {
-  background-color: var(--input-background);
+  background-color: var(--contact-form-input-background);
   border-radius: 5px;
-  border: 1px solid black;
+  border: 0 solid black;
+  color: var(--contact-form-input-color);
   padding: 0.8rem;
+  font-weight: bold;
 }
 
-.contact-form > select {
-  background-color: var(--input-background);
+.contact-form > .contact-dropdown {
+  background-color: var(--contact-form-input-background);
   border-radius: 5px;
-  border: 1px solid black;
+  color:hsl(from color h s l);
+  font-size: 0.9rem;
+  list-style-type: none;
   padding: 0.8rem;
   text-align: center;
 }
 
-.contact-form > select:hover {
+.contact-form > .contact-dropdown:hover p {
+  border: 1px solid black;
+} 
+
+.contact-form > .contact-dropdown:hover .dropdown-items {
   cursor: pointer;
+  display: block;
+  list-style-type: none;
+}
+
+.contact-form > .contact-dropdown > .dropdown-items {
+  display: none;
 }
 
 .contact-form > textarea {
+  background-color: var(--contact-form-input-background);
+  border: none;
   border-radius: 5px;
-  border: 1px solid black;
   font-family: var(--font-family);
   height: 5rem;
   padding: 0.5rem;
+  resize: none;
 }
 
 .contact-form > button {
   background-color: var(--hover-color);
-  border-radius: 5px;
+  border-radius: 50%;
   border: none;
   color: var(--header-background);
   font-weight: bold;
-  margin: 0.5rem 5rem;
+  font-size: 1rem;
+  margin: 0 auto;
   padding: 0.5rem;
+  width: 50px;
 }
 
 .contact-form > button:hover {

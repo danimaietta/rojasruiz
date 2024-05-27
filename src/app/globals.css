@@ -1,15 +1,18 @@
 :root {
   /* Background */
   --aboutus-background: rgb(21, 76, 121);
-  --contact-background: rgb(21, 76, 121);
+  --contact-background: #2c3e50;
   --contact-form-background: rgb(255, 255, 255);
+  --contact-form-input-background: rgb(245, 245, 245);
   --header-background: rgb(255, 255, 255);
   --projects-background: rgb(21, 76, 121);
-  --services-background: rgb(21, 76, 121);
+  --services-background: rgb(255, 255, 255);
+  --footer-background: rgb(21, 76, 121);
   --input-background: rgb(247, 245, 240);
   /* Text */
   --h1-color: rgb(240, 240, 240);
   --contact-h1-color: rgb(27, 95, 151);
+  --contact-form-input-color: rgb(9, 41, 67);
   --text-highlight: rgb(255, 255, 255);;
   --text-whatsapp: rgb(37, 211, 102);
   --font-family: 'Raleway, sans-serif';
@@ -166,11 +169,13 @@ span {
 }
 
 .footer {
-  background-color: var(--header-background);
+  background-color: var(--footer-background);
+  color: white;
   display: flex;
 }
 
 .icon {
+  color: white;
   cursor: pointer;
   height: 1.5rem;
   width: 1.5rem;

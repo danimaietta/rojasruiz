@@ -34,7 +34,7 @@ export default function AboutUs() {
           <p>
             Somos empresa dedicada a la construcción <br/>
             de proyectos de ingeniería civil con más <br/>
-            de 15 años de experiencia en el mercado <br/>  
+            de 15 años de experiencia en el mercado en toda Costa Rica <br/>  
           </p>
           <p>
             Nos caracterizamos por ser una compañía que estamos <br/>
