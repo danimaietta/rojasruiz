@@ -1,5 +1,5 @@
 import styles from './page.module.css'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { IoIosMail } from "react-icons/io";
 import constants from '@/constants/constants'
 
@@ -10,24 +10,22 @@ export default function Contact() {
   const [displaySuccess, setDisplaySuccess] = useState<boolean>(false)
   const { regexString, regexNumber, regexMail, maxCharacters } = constants
 
+  useEffect(() => {
+    
+  }, [])
+
   const checkInput = (type: string) => (e: React.ChangeEvent<HTMLInputElement>)  => {
     const { value } = e.target
-    if(!value.match(regexString) && type === 'string') setDisplayName(true)
-    if(!value.match(regexNumber) && type === 'number') setDisplayPhone(true)
-    if(!value.match(regexMail) && type === 'mail') setDisplayMail(true)
+    !value.match(regexString) && type === 'string' ? setDisplayName(true) : setDisplayName(false)
+    !value.match(regexNumber) && type === 'number' ? setDisplayPhone(true) : setDisplayPhone(false)
+    !value.match(regexMail) && type === 'mail' ? setDisplayMail(true) : setDisplayMail(false)
   }
 
-  const checkInputs = () => (e: React.MouseEvent<HTMLButtonElement>) => {
+  const sendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    checkInput('string')
-    checkInput('number')
-    checkInput('mail')
-  }
-
-  const sendEmail = () => (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    checkInputs()
-    setDisplaySuccess(true)
+    if(!displayName && !displayMail && !displayPhone){
+      setDisplaySuccess(true)
+    }
   }
 
   return (
@@ -36,11 +34,11 @@ export default function Contact() {
         <p>
           Puede contactarnos a través de nuestro formulario y nosotros le atenderemos.
         </p>
-        <input type='text' placeholder='Nombre'></input>
+        <input type='text' placeholder='Nombre' onChange={checkInput('string')}></input>
         { displayName && <p> * nombre solo puede contener letras </p> }
-        <input type='text' placeholder='Correo'></input>
+        <input type='text' placeholder='Correo' onChange={checkInput('mail')}></input>
         { displayMail && <p> * correo no válido </p> }
-        <input type='text' placeholder='Teléfono'></input>
+        <input type='text' placeholder='Teléfono' onChange={checkInput('number')}></input>
         { displayPhone && <p> * teléfono solo puede contener números </p> }
 
         <li className={styles['contact-dropdown']}>
@@ -56,10 +54,15 @@ export default function Contact() {
           </ul>
         </li>
         <textarea placeholder='Dejenos un mensaje' maxLength={maxCharacters}></textarea>
-        <button onClick={sendEmail}>
+        <button onClick={e => sendEmail(e)}>
           <IoIosMail />
         </button>
-        { displaySuccess && <p> Nosotros nos estaremos comunicando con usted en los proximos 3 días hábiles. </p> }
+        { 
+          displaySuccess && 
+            <p> 
+              Nosotros nos estaremos comunicando con usted en los proximos 3 días hábiles. 
+            </p> 
+        }
       </form>
     </>
   )
