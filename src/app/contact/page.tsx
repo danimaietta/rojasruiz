@@ -16,7 +16,7 @@ export default function Contact() {
 
   const checkInput = (type: string) => (e: React.ChangeEvent<HTMLInputElement>)  => {
     const { value } = e.target
-    !value.match(regexString) && type === 'string' ? setDisplayName(true) : setDisplayName(false)
+    !value.match(regexString) && type === 'string' || value === '' ? setDisplayName(true) : setDisplayName(false)
     !value.match(regexNumber) && type === 'number' ? setDisplayPhone(true) : setDisplayPhone(false)
     !value.match(regexMail) && type === 'mail' ? setDisplayMail(true) : setDisplayMail(false)
   }
@@ -40,7 +40,6 @@ export default function Contact() {
         { displayMail && <p> * correo no válido </p> }
         <input type='text' placeholder='Teléfono' onChange={checkInput('number')}></input>
         { displayPhone && <p> * teléfono solo puede contener números </p> }
-
         <li className={styles['contact-dropdown']}>
           <p> Que servicio necesita? </p>
           <ul className={styles['dropdown-items']}>
@@ -54,8 +53,8 @@ export default function Contact() {
           </ul>
         </li>
         <textarea placeholder='Dejenos un mensaje' maxLength={maxCharacters}></textarea>
-        <button onClick={e => sendEmail(e)}>
-          <IoIosMail />
+        <button className={displaySuccess ? styles['button-success'] : ''} onClick={e => sendEmail(e)}>
+          <IoIosMail className={displaySuccess ? styles['icon-success'] : ''}/>
         </button>
         { 
           displaySuccess && 

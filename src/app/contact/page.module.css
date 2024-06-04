@@ -96,30 +96,49 @@
   background-color: var(--contact-form-input-background);
   border-radius: 5px;
   color:hsl(from color h s l);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   list-style-type: none;
   padding: 0.8rem;
   text-align: center;
 }
 
-.contact-form > .contact-dropdown:hover p {
-  border: 1px solid black;
-} 
-
 .contact-form > .contact-dropdown:hover .dropdown-items {
-  cursor: pointer;
+  animation: displayList 1s ease-in;
   display: block;
+  cursor: pointer;
   list-style-type: none;
+}
+
+.contact-form > .contact-dropdown > .dropdown-items > li {
+  margin: 0.5vh 0px;
+}
+
+.contact-form > .contact-dropdown > .dropdown-items > li:hover {
+  background-color: green;
 }
 
 .contact-form > .contact-dropdown > .dropdown-items {
   display: none;
 }
 
+@keyframes displayList {
+  0% { transform: translateY(20px); display: none;}
+  10% { transform: translateY(18px); display: none;}
+  20% { transform: translateY(16px); display: none; }
+  30% { transform: translateY(14px); }
+  40% { transform: translateY(12px); }
+  50% { transform: translateY(10px); }
+  60% { transform: translateY(8px); }
+  70% { transform: translateY(6px); }
+  80% { transform: translateY(4px); }
+  90% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
 .contact-form > textarea {
   background-color: var(--contact-form-input-background);
-  border: none;
   border-radius: 5px;
+  border: none;
   font-family: var(--font-family);
   height: 5rem;
   padding: 0.5rem;
@@ -131,8 +150,8 @@
   border-radius: 50%;
   border: none;
   color: var(--header-background);
-  font-weight: bold;
   font-size: 1rem;
+  font-weight: bold;
   margin: 0 auto;
   padding: 0.5rem;
   width: 50px;
@@ -141,4 +160,23 @@
 .contact-form > button:hover {
   cursor: pointer;
   font-size: 1.01rem;
+}
+
+.button-success {
+  animation: highLight 2.5s linear;
+  background-color: green!important;
+}
+
+@keyframes highLight {
+  0% { transform: translateY(0); }
+  10% { transform: translateY(7px); }
+  20% { transform: translateY(0); }
+  30% { transform: translateY(7px); }
+  40% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+  60% { transform: translateY(0); }
+  70% { transform: translateY(7px); }
+  80% { transform: translateY(0); }
+  90% { transform: translateY(7px); }
+  100% { transform: translateY(0); }
 }
