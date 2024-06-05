@@ -1,19 +1,16 @@
 import styles from './page.module.css'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { IoIosMail } from "react-icons/io";
 import constants from '@/constants/constants'
 
 export default function Contact() {
-  const [displayName, setDisplayName] = useState<boolean>(false)
-  const [displayMail, setDisplayMail] = useState<boolean>(false)
-  const [displayPhone, setDisplayPhone] = useState<boolean>(false)
+  const [isName, setDisplayName] = useState<boolean>(false)
+  const [isMail, setDisplayMail] = useState<boolean>(false)
+  const [isPhone, setDisplayPhone] = useState<boolean>(false)
   const [displaySuccess, setDisplaySuccess] = useState<boolean>(false)
   const [dropdownTitle, setDropdownTitle] = useState<string>('Que servicio necesita?')
+  const dropDownClicked = useRef(true)
   const { contactDropdownOptions, maxCharacters, regexString, regexNumber, regexMail } = constants
-
-  useEffect(() => {
-    
-  }, [])
 
   const checkInput = (type: string) => (e: React.ChangeEvent<HTMLInputElement>)  => {
     const { value } = e.target
@@ -24,30 +21,40 @@ export default function Contact() {
 
   const sendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    if(!displayName && !displayMail && !displayPhone){
+    if(!isName && !isMail && !isPhone){
       setDisplaySuccess(true)
     }
+  }
+
+  const changeDropdownTitle = (option: string) => {
+    dropDownClicked.current = true
+    setDropdownTitle(option)
   }
 
   return (
     <>
       <form className={styles['contact-form']}>
         <p>
-          Puede contactarnos a través de nuestro formulario y nosotros le atenderemos.
+          Si necesita de nuestros servicios puede contactarnos 
+          a través de nuestro formulario y nosotros le atenderemos.
         </p>
         <input type='text' placeholder='Nombre' onChange={checkInput('string')}></input>
-        { displayName && <p> * nombre solo puede contener letras </p> }
+        { isName && <p> * nombre solo puede contener letras </p> }
         <input type='text' placeholder='Correo' onChange={checkInput('mail')}></input>
-        { displayMail && <p> * correo no válido </p> }
+        { isMail && <p> * correo no válido </p> }
         <input type='text' placeholder='Teléfono' onChange={checkInput('number')}></input>
-        { displayPhone && <p> * teléfono solo puede contener números </p> }
+        { isPhone && <p> * teléfono solo puede contener números </p> }
         <li className={styles['contact-dropdown']}>
-          <p> { dropdownTitle } </p>
+          <p 
+            className={dropDownClicked.current ? styles['dropdown-selected'] : styles['dropdown-placeholder']}
+          > 
+            { dropdownTitle } 
+          </p>
           <ul className={styles['dropdown-items']}>
             {
               contactDropdownOptions.map((option, index) => {
                 return (
-                  <li key={index} onClick={() => setDropdownTitle(option)} className={styles['']}> 
+                  <li key={index} onClick={() => changeDropdownTitle(option)} className={styles['']}> 
                     { option } 
                   </li>
                 )
