@@ -69,10 +69,7 @@
     }
   }
   
-  input,
-  p,
-  .contact-dropdown,
-  textarea {
+  input, p, .contact-dropdown, textarea {
     margin: 0.5rem 2rem;
   }
   
@@ -92,12 +89,11 @@
   }
   
   .contact-dropdown {
-    display: flex;
     /* text-align: center; */
     background-color: var(--contact-form-input-background);
     border-radius: 5px;
     color:hsl(from color h s l);
-    font-size: 0.8rem;
+    font-size: 1rem;
     list-style-type: none;
     padding: 0.8rem;
     text-align: center;
@@ -222,5 +218,4 @@
     90% { transform: translateY(7px); }
     100% { transform: translateY(0); }
   }
-
 }

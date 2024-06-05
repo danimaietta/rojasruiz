@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './page.module.css'
+import styles from './page.module.scss'
 import About from './aboutUs/page'
 import Services from './services/page'
 import Projects from './projects/page'

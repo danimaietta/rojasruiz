@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { FaSquareWhatsapp } from 'react-icons/fa6';
 import { IoMenuSharp } from "react-icons/io5";
 import Image from 'next/image'
-import './globals.css'
+import './globals.scss'
 import logo from '@assets/logo.png'
 import constants from '@constants/constants'
 
