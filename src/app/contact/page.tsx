@@ -1,4 +1,4 @@
-import styles from './page.module.css'
+import styles from './page.module.scss'
 import React, { useState, useRef } from 'react'
 import { IoIosMail } from "react-icons/io";
 import constants from '@/constants/constants'
