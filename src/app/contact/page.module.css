@@ -102,6 +102,10 @@
   text-align: center;
 }
 
+.contact-form > .contact-dropdown > p {
+  color: grey;
+}
+
 .contact-form > .contact-dropdown:hover .dropdown-items {
   animation: displayList 1s ease-in;
   display: block;
@@ -110,11 +114,12 @@
 }
 
 .contact-form > .contact-dropdown > .dropdown-items > li {
-  margin: 0.5vh 0px;
+  margin: 0.8vh 0px;
 }
 
 .contact-form > .contact-dropdown > .dropdown-items > li:hover {
-  background-color: green;
+  background-color: var(--hover-color);
+  color: var(--h1-color)
 }
 
 .contact-form > .contact-dropdown > .dropdown-items {
@@ -122,17 +127,50 @@
 }
 
 @keyframes displayList {
-  0% { transform: translateY(20px); display: none;}
-  10% { transform: translateY(18px); display: none;}
-  20% { transform: translateY(16px); display: none; }
-  30% { transform: translateY(14px); }
-  40% { transform: translateY(12px); }
-  50% { transform: translateY(10px); }
-  60% { transform: translateY(8px); }
-  70% { transform: translateY(6px); }
-  80% { transform: translateY(4px); }
-  90% { transform: translateY(2px); }
-  100% { transform: translateY(0); }
+  0% { 
+    transform: translateY(20px); 
+    opacity: 0px;
+  }
+  10% { 
+    transform: translateY(18px); 
+    opacity: 0px;
+  }
+  20% { 
+    transform: translateY(16px); 
+    opacity: 0px; 
+  }
+  30% { 
+    transform: translateY(14px);
+    opacity: 1px; 
+  }
+  40% { 
+    transform: translateY(12px);
+    opacity: 2px; 
+  }
+  50% { 
+    transform: translateY(10px);
+    opacity: 2px; 
+  }
+  60% { 
+    transform: translateY(8px);
+    opacity: 3px; 
+  }
+  70% { 
+    transform: translateY(6px);
+    opacity: 4px; 
+  }
+  80% { 
+    transform: translateY(4px);
+    opacity: 5px; 
+  }
+  90% { 
+    transform: translateY(2px);
+    opacity: 5px; 
+  }
+  100% { 
+    transform: translateY(0);
+    opacity: 5px; 
+  }
 }
 
 .contact-form > textarea {
