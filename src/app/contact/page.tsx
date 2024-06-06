@@ -4,19 +4,19 @@ import { IoIosMail } from "react-icons/io";
 import constants from '@/constants/constants'
 
 export default function Contact() {
-  const [isName, setDisplayName] = useState<boolean>(false)
-  const [isMail, setDisplayMail] = useState<boolean>(false)
-  const [isPhone, setDisplayPhone] = useState<boolean>(false)
+  const [isName, setIsName] = useState<boolean>(false)
+  const [isMail, setIsMail] = useState<boolean>(false)
+  const [isPhone, setIsPhone] = useState<boolean>(false)
   const [displaySuccess, setDisplaySuccess] = useState<boolean>(false)
-  const [dropdownTitle, setDropdownTitle] = useState<string>('Que servicio necesita?')
-  const dropDownClicked = useRef(true)
+  const [dropdownTitle, setDropdownTitle] = useState<string>('¿Qué servicio necesita?')
+  const dropDownClicked = useRef(false)
   const { contactDropdownOptions, maxCharacters, regexString, regexNumber, regexMail } = constants
 
   const checkInput = (type: string) => (e: React.ChangeEvent<HTMLInputElement>)  => {
     const { value } = e.target
-    !value.match(regexString) && type === 'string' ? setDisplayName(true) : setDisplayName(false)
-    !value.match(regexNumber) && type === 'number' ? setDisplayPhone(true) : setDisplayPhone(false)
-    !value.match(regexMail) && type === 'mail' ? setDisplayMail(true) : setDisplayMail(false)
+    !value.match(regexString) && type === 'string' ? setIsName(true) : setIsName(false)
+    !value.match(regexNumber) && type === 'number' ? setIsPhone(true) : setIsPhone(false)
+    !value.match(regexMail) && type === 'mail' ? setIsMail(true) : setIsMail(false)
   }
 
   const sendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
