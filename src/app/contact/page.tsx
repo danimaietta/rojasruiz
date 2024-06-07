@@ -1,5 +1,5 @@
 import styles from './page.module.scss'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useReducer } from 'react'
 import { IoIosMail } from "react-icons/io";
 import constants from '@/constants/constants'
 
@@ -30,6 +30,40 @@ export default function Contact() {
     dropDownClicked.current = true
     setDropdownTitle(option)
   }
+
+  // useReducer
+
+  interface State {
+    isName: boolean,
+    isMail: boolean,
+    isPhone: boolean,
+    dropdownTitle: string
+  }
+
+  interface Action {
+    type: string, 
+    post: State, 
+    error: string
+  }
+
+  function reducer(state: State, action: Action): State {
+    switch (action.type){
+      case 'name-denied':
+        return { ...state, isName: false }
+      case 'mail-denied':
+        return { ...state, isMail: false }
+      default: 
+        return { ...state }
+    }
+  }
+
+  const [posts, dispatch] = useReducer(reducer, {
+    isName: false,
+    isMail: false,
+    isPhone: false,
+    dropdownTitle: '¿Qué servicio necesita?'
+  })
+
 
   return (
     <>
