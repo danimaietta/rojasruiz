@@ -1,5 +1,5 @@
 import styles from './page.module.scss'
-import React, { useState, useRef, useReducer } from 'react'
+import React, { useState, useEffect, useRef, useReducer } from 'react'
 import { IoIosMail } from "react-icons/io";
 import constants from '@/constants/constants'
 
@@ -21,6 +21,10 @@ export default function Contact() {
   const dropDownClicked = useRef(false)
   const { contactDropdownOptions, maxCharacters, regexString, regexNumber, regexMail } = constants
 
+  useEffect(() => {
+
+  }, [])
+
   const checkInput = (type: string) => (e: React.ChangeEvent<HTMLInputElement>)  => {
     const { value } = e.target
     !value.match(regexString) && type === 'string' ? dispatch({ type: 'name-success' }): dispatch({ type: 'name-denied' })
@@ -39,8 +43,6 @@ export default function Contact() {
     dropDownClicked.current = true
     dispatch({ type: 'select-dropdown', inputs: { ...inputs, dropdownTitle: option } })
   }
-
-  // useReducer
 
   function reducer(state: State, action: Action): State {
     switch (action.type){
@@ -62,6 +64,8 @@ export default function Contact() {
     dropdownTitle: '¿Qué servicio necesita?'
   })
 
+  console.count('contact renders: ')
+
   return (
     <>
       <form className={styles['contact-form']}>
@@ -69,11 +73,11 @@ export default function Contact() {
           Si necesita de nuestros servicios puede contactarnos 
           a través de nuestro formulario y nosotros le atenderemos.
         </p>
-        <input type='text' placeholder='Nombre' onChange={checkInput('string')}></input>
+        <input type='text' placeholder='Nombre' onChange={checkInput('string')} required></input>
         { inputs.isName && <p> * nombre solo puede contener letras </p> }
-        <input type='text' placeholder='Correo' onChange={checkInput('mail')}></input>
+        <input type='text' placeholder='Correo' onChange={checkInput('mail')} required></input>
         { inputs.isMail && <p> * correo no válido </p> }
-        <input type='text' placeholder='Teléfono' onChange={checkInput('number')}></input>
+        <input type='text' placeholder='Teléfono' onChange={checkInput('number')} required></input>
         { inputs.isPhone && <p> * teléfono solo puede contener números </p> }
         <li className={styles['contact-dropdown']}>
           <p 
