@@ -87,6 +87,14 @@
     padding: 0.8rem;
     font-weight: bold;
   }
+
+  .denied {
+    border: red 1px solid;
+  }
+
+  .access {
+    border: green 1px solid;
+  }
   
   .contact-dropdown {
     background-color: var(--contact-form-input-background);
