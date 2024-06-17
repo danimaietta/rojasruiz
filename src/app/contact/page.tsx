@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import styles from './page.module.scss'
 import React, { useState, useRef, useReducer } from 'react'
