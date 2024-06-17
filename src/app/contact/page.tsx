@@ -10,6 +10,7 @@ interface State {
   isName: boolean,
   isMail: boolean,
   isPhone: boolean,
+  isClicked: boolean,
   dropdownTitle: string
 }
 
@@ -31,6 +32,7 @@ export default function Contact() {
     isName: false,
     isMail: false,
     isPhone: false,
+    isClicked: false,
     dropdownTitle: '¿Qué servicio necesita?'
   })
 
@@ -55,9 +57,9 @@ export default function Contact() {
     if(!inputs.isName && !inputs.isMail && !inputs.isPhone && 
       inputs.name !== '' && inputs.mail !== '' && inputs.phone !== '' &&
       inputs.name.length > 5 && inputs.mail.length > 10 && inputs.phone.length > 7){
-        setDisplaySuccess(true)
+        setDisplaySuccess(true) // send email
     }
-    !inputs.name.match(regexString) ? dispatch({ type: 'name-success', inputs }): dispatch({ type: 'name-denied', inputs })
+    !inputs.name.match(regexString) ? dispatch({ type: 'name-success', inputs }) : dispatch({ type: 'name-denied', inputs })
     !inputs.phone.match(regexNumber) ? dispatch({ type: 'phone-success', inputs }) : dispatch({ type: 'phone-denied', inputs })
     !inputs.mail.match(regexMail) ? dispatch({ type: 'mail-success', inputs }) : dispatch({ type: 'mail-denied', inputs })
   }
