@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './page.module.scss'
 import React, { useState, useRef, useReducer } from 'react'
 import { IoIosMail } from "react-icons/io";
@@ -15,8 +17,8 @@ interface State {
 }
 
 interface Action {
-  type: string, 
-  inputs: State, 
+  type: string,
+  inputs: State,
   error?: string
 }
 
