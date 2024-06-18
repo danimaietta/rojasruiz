@@ -40,16 +40,16 @@ export default function Contact() {
 
   function reducer(state: State, action: Action): State {
     switch (action.type){
-      case 'name-update': return { ...state, name: action.inputs.name}
+      case 'name-update': return { ...state, name: action.inputs.name }
       case 'name-denied': return { ...state, isName: false }
       case 'name-success': return { ...state, isName: true }
-      case 'mail-update': return { ...state, mail: action.inputs.mail}
+      case 'mail-update': return { ...state, mail: action.inputs.mail }
       case 'mail-denied': return { ...state, isMail: false }
       case 'mail-success': return { ...state, isMail: true }
-      case 'phone-update': return { ...state, phone: action.inputs.phone}
+      case 'phone-update': return { ...state, phone: action.inputs.phone }
       case 'phone-denied': return { ...state, isPhone: false }
       case 'phone-success': return { ...state, isPhone: true }
-      case 'select-dropdown': return { ...state, dropdownTitle: action?.inputs?.dropdownTitle || ''}
+      case 'select-dropdown': return { ...state, dropdownTitle: action?.inputs?.dropdownTitle || '' }
       default: return { ...state }
     }
   }

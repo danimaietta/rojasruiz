@@ -48,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <html lang='es'>
             <body>
                 <div className='header'>
-                    <Link href='/pdfView'>
+                    <Link href='/nosotros'>
                     <Image 
                         src={logo} 
                         className='logo' 
