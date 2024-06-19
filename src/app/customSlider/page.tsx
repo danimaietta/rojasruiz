@@ -1,20 +1,19 @@
 'use client'
 
 import React, { useState, useEffect } from "react";
-import Image from 'next/image'
+import Image, { StaticImageData }  from 'next/image'
 import styles from './page.module.scss'
-import { StaticImageData } from "next/image";
 
-interface SliderItem {
-  path: StaticImageData;
-  caption: string;
+interface SliderItem{
+  path: StaticImageData, 
+  caption: string
 }
 
-interface CustomSliderProps {
-  items: SliderItem[];
+interface CustomSliderProps{
+  items: SliderItem []
 }
 
-const CustomSlider: React.FC<CustomSliderProps> = ({ items }) => {
+const CustomSlider = ({ items }: CustomSliderProps) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {

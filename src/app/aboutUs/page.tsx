@@ -6,9 +6,13 @@ import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
 import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
 import CustomSlider from '@/customSlider/page'
 
-export default function AboutUs() {
+interface CustomSliderProps{
+  path: StaticImageData, 
+  caption: string
+}
 
-  const sliderItems: { path: StaticImageData; caption: string }[] = [
+export default function AboutUs() {
+  const items: CustomSliderProps[] = [
     {
       path: sliderImage1,
       caption: 'Slide 1'
@@ -42,7 +46,7 @@ export default function AboutUs() {
             el servicio óptimo en sus proyectos en todas las ramas <br/>
             electromecánicas
           </p>
-          <CustomSlider items={sliderItems} />
+          <CustomSlider items={items} />
         </div>
     </div>
   )
