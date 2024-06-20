@@ -1,19 +1,54 @@
 .nosotros {
-    height: 100vh;
-    width: 100vw;
+    background-color: var(--header-background);
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     grid-template-rows: repeat(3, 1fr);   /* Three rows */
-    margin-top: var(--header-height);
+    height: 100vh;
+    margin-top: 15vh;
+    overflow: hidden;
     padding: 0 5vw;
-    gap: 1rem;
+    width: 100vw;
 
     .image {
-        height: 35vh;
-        width: 40vw;
+        height: 34vh;
+        width: 100%;
+    }
+
+    div {
+        background-color: var(--contact-form-input-background);
+    }
+
+    h1 {
+        display: none;
+        color: var(--golden-color);
+        letter-spacing: 2px;
+        font-style: bold;
+        margin-top: 3vh;
+        text-align: center;
+    }
+
+    .animation {
+        display: block;
+        animation: text-appear 3s ease-in-out;
     }
 
     p {
+        display: none;
+        font-family: 'Montserrat', arial, sans-serif;
+        font-size: 1.3rem;
+        letter-spacing: 1.1px;
+        padding: 3rem;
         text-align: center;
+    }
+
+    @keyframes text-appear {
+        0% {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }

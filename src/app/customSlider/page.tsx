@@ -10,11 +10,11 @@ interface SliderItem{
 }
 
 interface CustomSliderProps{
-  items: SliderItem []
+  items: SliderItem[]
 }
 
 const CustomSlider = ({ items }: CustomSliderProps) => {
-  const [index, setIndex] = useState(0);
+  const [index23, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,8 +29,8 @@ const CustomSlider = ({ items }: CustomSliderProps) => {
     <div className="slider-container">
       <Image
         className={styles['slider-item']}
-        src={items[index].path} 
-        alt={items[index].caption} 
+        src={items[index23].path} 
+        alt={items[index23].caption} 
       />
     </div>
   );

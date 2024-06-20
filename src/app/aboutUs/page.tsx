@@ -6,13 +6,13 @@ import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
 import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
 import CustomSlider from '@/customSlider/page'
 
-interface CustomSliderProps{
+interface SliderItem{
   path: StaticImageData, 
   caption: string
 }
 
 export default function AboutUs() {
-  const items: CustomSliderProps[] = [
+  const items: SliderItem[] = [
     {
       path: sliderImage1,
       caption: 'Slide 1'
