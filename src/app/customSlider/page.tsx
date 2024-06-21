@@ -1,25 +1,16 @@
 'use client'
 
 import React, { useState, useEffect } from "react";
-import Image, { StaticImageData }  from 'next/image'
+import Image, { StaticImageData }from 'next/image'
 import styles from './page.module.scss'
 
-interface SliderItem{
-  path: StaticImageData, 
-  caption: string
-}
-
-interface CustomSliderProps{
-  items: SliderItem[]
-}
-
-const CustomSlider = ({ items }: CustomSliderProps) => {
-  const [index23, setIndex] = useState(0);
+export default function CustomSlider({ images }: { images: { path: StaticImageData, caption: string }[] }){
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) =>
-        prevIndex === items.length - 1 ? 0 : prevIndex + 1
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
     }, 7000);
     return () => clearInterval(interval);
@@ -29,11 +20,9 @@ const CustomSlider = ({ items }: CustomSliderProps) => {
     <div className="slider-container">
       <Image
         className={styles['slider-item']}
-        src={items[index23].path} 
-        alt={items[index23].caption} 
+        src={images[index].path} 
+        alt={images[index].caption} 
       />
     </div>
   );
 }
-
-export default CustomSlider;

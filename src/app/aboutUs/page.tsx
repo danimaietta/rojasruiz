@@ -1,18 +1,13 @@
 import styles from './page.module.scss'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import aboutUs from '@assets/aboutUs/AboutUs.png'
 import sliderImage1 from '@assets/aboutUs/sliderImage-1.jpg'
 import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
 import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
 import CustomSlider from '@/customSlider/page'
 
-interface SliderItem{
-  path: StaticImageData, 
-  caption: string
-}
-
 export default function AboutUs() {
-  const items: SliderItem[] = [
+  const images = [
     {
       path: sliderImage1,
       caption: 'Slide 1'
@@ -46,7 +41,7 @@ export default function AboutUs() {
             el servicio óptimo en sus proyectos en todas las ramas <br/>
             electromecánicas
           </p>
-          <CustomSlider items={items} />
+          <CustomSlider images={images} />
         </div>
     </div>
   )

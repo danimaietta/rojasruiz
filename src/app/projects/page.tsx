@@ -2,7 +2,6 @@ import sliderImage1 from '@assets/aboutUs/sliderImage-1.jpg'
 import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
 import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
 import ImageSlider from '@/imageSlider/page'
-import { StaticImageData } from "next/image";
 
 export default function Projects() {
 
