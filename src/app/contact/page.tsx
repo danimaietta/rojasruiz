@@ -3,7 +3,7 @@
 import styles from './page.module.scss'
 import React, { useState, useRef, useReducer } from 'react'
 import { IoIosMail } from "react-icons/io";
-import constants from '@/constants/constants'
+import constants from '@app/constants/constants'
 
 interface State {
   name: string,

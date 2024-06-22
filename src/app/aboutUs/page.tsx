@@ -4,7 +4,7 @@ import aboutUs from '@assets/aboutUs/AboutUs.png'
 import sliderImage1 from '@assets/aboutUs/sliderImage-1.jpg'
 import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
 import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
-import CustomSlider from '@/customSlider/page'
+import CustomSlider from '@app/customSlider/page'
 
 export default function AboutUs() {
   const images = [

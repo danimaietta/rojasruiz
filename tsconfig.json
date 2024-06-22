@@ -18,9 +18,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/app/*"],
+      "@/*": ["./src/*"],
       "@assets/*": ["./src/app/assets/*"],
-      "@styles/*": ["./src/app/styles/*"],
+      "@app/*": ["./src/app/*"],
       "@constants/*": ["./src/app/constants/*"],
     }
   },
