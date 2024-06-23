@@ -7,19 +7,20 @@ import constants from '@constants/constants'
 import historia from '@assets/us/historia.png'
 import mision from '@assets/us/mision.png'
 import vision from '@assets/us/vision.png'
+import useWindowSize from '../hooks/useWindowSize'
 
 export default function PdfView() {
   const [misionAnimation, setMisionAnimation] = useState<boolean>(false)
   const [visionAnimation, setVisionAnimation] = useState<boolean>(false)
-  const { innerHeight } = window
+  const { width, height } = useWindowSize();
   const { historyTitle, historyText, missionTitle, missionText, visionTitle, visionText } = constants.nosotros
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
       // console.log('scrollY', scrollY)
-      if(scrollY <= innerHeight / 8 ){
+      if(scrollY <= height / 8 ){
         setMisionAnimation(true)
-      } else if(scrollY <= innerHeight / 7){
+      } else if(scrollY <= height / 7){
         setVisionAnimation(true)
       }
     });

@@ -1,19 +1,32 @@
 import { Fragment } from 'react';
 import styles from './page.module.scss'
 import Image from 'next/image'
-import { StaticImageData } from 'next/image';
+import sliderImage1 from '@assets/aboutUs/sliderImage-1.jpg'
+import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
+import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
 
-interface CustomSliderProps{
-  images: { path: StaticImageData, caption: string }[]
-}
+export default function ImageSlider(){
 
-export default function ImageSlider({ images }: CustomSliderProps){
+  const slideImages = [
+    {
+      path: sliderImage1,
+      caption: 'Slide 1'
+    },
+    {
+      path: sliderImage2,
+      caption: 'Slide 2'
+    },
+    {
+      path: sliderImage3,
+      caption: 'Slide 3'
+    },
+  ];
 
   return (
     <div className={styles['slider-container']} >
       <div className={styles['slider-visible']} >
         {
-          images.map((image, index) => {
+          slideImages.map((image, index) => {
             return (
               <Fragment key={index}>
                 <div className={styles['title']}>

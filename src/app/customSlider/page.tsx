@@ -1,11 +1,30 @@
 'use client'
 
 import React, { useState, useEffect } from "react";
-import Image, { StaticImageData }from 'next/image'
+import Image from 'next/image'
 import styles from './page.module.scss'
+import sliderImage1 from '@assets/aboutUs/sliderImage-1.jpg'
+import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
+import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
 
-export default function CustomSlider({ images }: { images: { path: StaticImageData, caption: string }[] }){
+export default function CustomSlider(){
   const [index, setIndex] = useState(0);
+
+  const images = [
+    {
+      path: sliderImage1,
+      caption: 'Slide 1'
+    },
+    {
+      path: sliderImage2,
+      caption: 'Slide 2'
+    },
+    {
+      path: sliderImage3,
+      caption: 'Slide 3'
+    },
+  ];
+
 
   useEffect(() => {
     const interval = setInterval(() => {

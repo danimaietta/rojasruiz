@@ -8,21 +8,22 @@ import Image from 'next/image'
 import './globals.scss'
 import logo from '@assets/Rojas Ruiz Logo.jpg'
 import constants from '@constants/constants'
+import useWindowSize from '@hooks/useWindowSize'
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     const [selected, setSelected] = useState<string>('aboutus')
     const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
+    const { width, height } = useWindowSize();
     const { headerOptions, headerTexts } = constants
-    const { innerHeight } = window
-    const totalHeight = innerHeight * headerOptions.length
+    const totalHeight = height * headerOptions.length
 
     useEffect(() => {
         document.addEventListener('scroll', () => {
-            if(scrollY < innerHeight - innerHeight * 0.10){
+            if(scrollY < height - height * 0.10){
                 setSelected('aboutus')
-            } else if(scrollY <= totalHeight - (innerHeight * 2) - (innerHeight * 0.10)){
+            } else if(scrollY <= totalHeight - (height * 2) - (height * 0.10)){
                 setSelected('services')
-            } else if(scrollY <= totalHeight - (innerHeight * 1) - (innerHeight * 0.10)){
+            } else if(scrollY <= totalHeight - (height * 1) - (height * 0.10)){
                 setSelected('projects')
             } else {
                 setSelected('contact')
@@ -36,8 +37,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     const scrollWindow = (section: string) => () => {
         let scrollPosition
         if(section === 'aboutus') scrollPosition = 0
-        if(section === 'services') scrollPosition = totalHeight - innerHeight * 3
-        if(section === 'projects') scrollPosition = totalHeight - innerHeight * 2
+        if(section === 'services') scrollPosition = totalHeight - height * 3
+        if(section === 'projects') scrollPosition = totalHeight - height * 2
         if(section === 'contact' ) scrollPosition = totalHeight
         scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
