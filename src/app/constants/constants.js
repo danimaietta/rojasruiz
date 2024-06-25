@@ -13,7 +13,8 @@ const constants = {
         missionText: 'Mantener nuestro compromiso de mejora continua, profesionalismo y ética para continuar siendo el aliado ideal de nuestros clientes en sus proyectos.',
         visionTitle: 'VISIÓN',
         visionText: 'Mediante una mejora continua, innovación, compromiso y trabajo… ofrecer a nuestros clientes el mejor servicio, soporte y eficiencia del mercado electromecánico',
-    }
+    },
+    numColegioIngenieros: 'cc-10371',
 }
 
 export default constants;
