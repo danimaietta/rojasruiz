@@ -1,4 +1,4 @@
-import styles from './page.module.css'
+import styles from './page.module.scss'
 import { GrTools } from "react-icons/gr";
 import { TbTools } from "react-icons/tb";
 import { GiElectric } from "react-icons/gi";
@@ -9,7 +9,7 @@ export default function Services() {
     return (
         <div className={styles['services-grid']}>
           <div>
-            <p> Instalación </p>
+            <p> INSTALACIÓN </p>
             <MdElectricalServices className={styles['installation-icon']} />
             <ul>
               <li>Generadores</li>
@@ -21,7 +21,7 @@ export default function Services() {
             </ul>
           </div>
           <div>
-            <p> Remodelación </p>
+            <p> REMODELACIÓN </p>
             <GrTools className={styles['remodeling-icon']} />
             <ul>
               <li>Oficinas</li>
@@ -35,7 +35,7 @@ export default function Services() {
             </ul>
           </div>
           <div>
-            <p> Asesoría </p>
+            <p> ASESORÍA </p>
             <TbTools className={styles['advisory-icon']} />
             <ul>
               <li>Generadores</li>
@@ -47,7 +47,7 @@ export default function Services() {
             </ul>
           </div>
           <div>
-            <p> Verificación Eléctrica </p>
+            <p> VERIFICACIÓN ELÉCTRICA </p>
             <GiElectric className={styles['verification-icon']} />
             <ul>
               <li>Generadores</li>
