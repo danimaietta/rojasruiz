@@ -1,31 +1,31 @@
 .slider-container {
 
   :hover {
-    animation: example 1s ease-out;
+    animation: grow 1s ease-out;
     animation-fill-mode: forwards;
     cursor: pointer;
   }
 
-  @keyframes example {
+  @keyframes grow {
     0%   { 
       height: var(--about-us-slider-height);
       width: var(--about-us-slider-width);
     }
     25%  { 
-      height:  50.5vh; 
-      width: 30.5vw; 
-    }
-    50%  { 
       height:  51vh; 
       width: 31vw; 
-    }    
-    75%  { 
-      height:  51.5vh; 
-      width: 31.5vw; 
-    }    
-    100%  { 
+    }
+    50%  { 
       height:  52vh; 
       width: 32vw; 
+    }    
+    75%  { 
+      height:  53vh; 
+      width: 33vw; 
+    }    
+    100%  { 
+      height:  54vh; 
+      width: 34vw; 
     }
   }
 
