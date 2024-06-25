@@ -9,6 +9,7 @@
             color: var(--h1-color);
             font-family: var(--font-family);
             font-weight: 700;
+            font-size: 1.6rem;
             position: absolute;
             text-align: center;
         }
@@ -54,9 +55,8 @@
     }
     
     .slider {
-        background-color: var(--aboutus-background);
         border-radius: 5px;
-        border: 1px solid var(--aboutus-background);
+        border: 1px solid var(--golden-color);
         cursor: pointer;
         position: absolute;
         right: 0;

@@ -6,6 +6,10 @@ import styles from './page.module.scss'
 import sliderImage1 from '@assets/aboutUs/sliderImage-1.jpg'
 import sliderImage2 from '@assets/aboutUs/sliderImage-2.jpg'
 import sliderImage3 from '@assets/aboutUs/sliderImage-3.jpg'
+import sliderImage4 from '@assets/aboutUs/sliderImage-4.jpg'
+import sliderImage5 from '@assets/aboutUs/sliderImage-5.jpg'
+import sliderImage6 from '@assets/aboutUs/sliderImage-6.jpg'
+import sliderImage7 from '@assets/aboutUs/sliderImage-7.jpg'
 
 export default function CustomSlider(){
   const [index, setIndex] = useState(0);
@@ -23,6 +27,22 @@ export default function CustomSlider(){
       path: sliderImage3,
       caption: 'Slide 3'
     },
+    {
+      path: sliderImage4,
+      caption: 'Slide 4'
+    },
+    {
+      path: sliderImage5,
+      caption: 'Slide 5'
+    },
+    {
+      path: sliderImage6,
+      caption: 'Slide 6'
+    },
+    {
+      path: sliderImage7,
+      caption: 'Slide 7'
+    }
   ];
 
 
@@ -36,7 +56,7 @@ export default function CustomSlider(){
   });
 
   return (
-    <div className="slider-container">
+    <div className={styles['slider-container']}>
       <Image
         className={styles['slider-item']}
         src={images[index].path} 

@@ -14,9 +14,9 @@ export default function AboutUs() {
         />
         <div className={styles['aboutUs-container']}>
           <p>
-            Somos empresa dedicada a la construcción <br/>
-            de proyectos de ingeniería civil con más <br/>
-            de 15 años de experiencia en el mercado en toda Costa Rica <br/>  
+            Somos una empresa dedicada a la construcción <br/>
+            de proyectos de ingeniería electromecánica con más <br/>
+            de 15 años de experiencia en el mercado <br/>  
           </p>
           <p>
             Nos caracterizamos por ser una compañía que estamos <br/>

@@ -11,7 +11,7 @@
   --input-background: rgb(247, 245, 240);
   /* Text */
   --golden-color: #bf7f14;
-  --h1-color: rgb(240, 240, 240);
+  --h1-color: rgb(23, 22, 22);
   --contact-h1-color: rgb(27, 95, 151);
   --contact-form-input-color: rgb(9, 41, 67);
   --text-highlight: rgb(255, 255, 255);;
@@ -32,22 +32,8 @@
     --header-option-width: 50%;
     --text-font-size: 1.5rem;
     --logo-width: 350px;
-    --about-us-slider-width: 50vh;
     --about-us-slider-height: 50vh;
-    --about-us-slider-width-hover: 65vh;
-    --about-us-slider-height-hover: 65vh;
-  }
-}
-
-@media only screen and (max-width: 850px) {
-  :root {
-    --header-height: 8vh;
-    --header-option-width: 30%;
-    --header-font-size: 0.50rem;
-    --text-font-size: 0.7rem;
-    --logo-width: 200px;
-    --about-us-slider-width: 30vh;
-    --about-us-slider-height: 30vh;
+    --about-us-slider-width: 30vw;
   }
 }
 
