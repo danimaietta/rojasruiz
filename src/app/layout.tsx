@@ -20,12 +20,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
     useEffect(() => {
         document.addEventListener('scroll', () => {
-            console.log(scrollY)
-            if(scrollY < height - height * 0.10){
+            if(scrollY < height - height * 0.2){
                 setSelected('aboutus')
-            } else if(scrollY <= totalHeight - (height) - (height * 0.10)){
+            } else if(scrollY <= totalHeight - (height * 3)){
                 setSelected('services')
-            } else if(scrollY <= totalHeight - (height * 0.10)){
+            } else if(scrollY <= totalHeight - (height * 2)){
                 setSelected('projects')
             } else {
                 setSelected('contact')
@@ -38,7 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     const scrollWindow = (section: string) => () => {
         let scrollPosition
         if(section === 'aboutus') scrollPosition = 0
-        if(section === 'services') scrollPosition = totalHeight - height * 3.1
+        if(section === 'services') scrollPosition = totalHeight - height * 3.12
         if(section === 'projects') scrollPosition = totalHeight - height * 2.2
         if(section === 'contact' ) scrollPosition = totalHeight - height * 1.3
         scrollTo({ top: scrollPosition, behavior: 'smooth' });
