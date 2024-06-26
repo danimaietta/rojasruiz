@@ -22,9 +22,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         document.addEventListener('scroll', () => {
             if(scrollY < height - height * 0.2){
                 setSelected('aboutus')
-            } else if(scrollY <= totalHeight - (height * 3)){
+            } else if(scrollY <= totalHeight - (height * 2.5)){
                 setSelected('services')
-            } else if(scrollY <= totalHeight - (height * 2)){
+            } else if(scrollY <= totalHeight - (height * 1.5)){
                 setSelected('projects')
             } else {
                 setSelected('contact')
