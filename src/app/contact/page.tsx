@@ -74,7 +74,10 @@ export default function Contact() {
   console.count('contact renders: ')
 
   return (
-    <>
+    <div className={styles['contact']}>
+      <div className={styles['our-info']}>
+
+      </div>
       <form className={styles['contact-form']}>
         <p>
           Si necesita de nuestros servicios puede contactarnos 
@@ -128,6 +131,6 @@ export default function Contact() {
             </p> 
         }
       </form>
-    </>
+    </div>
   )
 }

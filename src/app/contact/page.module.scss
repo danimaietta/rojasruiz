@@ -1,240 +1,263 @@
-.contact-form {
-  background-color: var(--contact-form-background);
-  border-radius: 5px;
-  border: 1.5px black solid;
+.contact{
+
   display: grid;
-  height: 65vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+  justify-content: center;
   margin: 0;
-  padding: 1rem;
-  width: 30%;
-  animation: contact-form-unhovers 1s;
-  animation-fill-mode: forwards;
 
-  &:hover {
-    animation: contact-form-hovers 1s;
-    animation-fill-mode: forwards;  
-  }
-  
-  @keyframes contact-form-hovers {
-    0% {
-      box-shadow: 2px 5px;
-      padding: 1rem;
-    }
-    20% {
-      box-shadow: 4px 10px;
-      padding: 1.04rem;
-    }
-    40% {
-      box-shadow: 6px 15px;
-      padding: 1.08rem;
-    }
-    60% {
-      box-shadow: 8px 20px;
-      padding: 1.12rem;
-    }
-    80% {
-      box-shadow: 10px 25px;
-      padding: 1.16rem;
-    }
-    100% {
-      box-shadow: 12px 30px;
-      padding: 1.2rem;
-    }
-  }
-  
-  @keyframes contact-form-unhovers {
-    0% {
-      box-shadow: 12px 30px;
-      padding: 1.2rem;
-    }
-    20% {
-      box-shadow: 10px 25px;
-      padding: 1.16rem;
-    }
-    40% {
-      box-shadow: 8px 20px;
-      padding: 1.12rem;
-    }
-    60% {
-      box-shadow: 6px 15px;
-      padding: 1.8rem;
-    }
-    80% {
-      box-shadow: 4px 10px;
-      padding: 1.4rem;
-    }
-    100% {
-      box-shadow: 2px 5px;
-      padding: 1rem;
-    }
-  }
-  
-  input, .contact-dropdown, textarea {
-    margin: 0.5rem 2rem;
-  }
-  
-  p {
-    text-align: justify;
-    text-justify: inter-word; 
-    font-size: 0.9rem;
-  }
-  
-  input {
-    background-color: var(--contact-form-input-background);
+  .our-info {
+    background-color: var(--contact-info-background);
     border-radius: 5px;
-    border: 0 solid black;
-    color: var(--contact-form-input-color);
-    padding: 0.8rem;
-    font-weight: bold;
+    border: 1.5px black solid;
+    display: grid;
+    height: 65vh;
+    margin: 0;
+    padding: 1rem;
+    width: 30%;
   }
 
-  .denied {
-    border: red 1px solid;
-  }
-
-  .access {
-    border: green 1px solid;
-  }
-  
-  .contact-dropdown {
-    background-color: var(--contact-form-input-background);
+  .contact-form {
+    background-color: var(--contact-form-background);
     border-radius: 5px;
-    list-style-type: none;
-    padding: 0.8rem;
-    text-align: center;
-
+    border: 1.5px black solid;
+    display: grid;
+    height: 65vh;
+    margin: 0;
+    padding: 1rem;
+    width: 30%;
+    animation: contact-form-unhovers 1s;
+    animation-fill-mode: forwards;
+  
+    &:hover {
+      animation: contact-form-hovers 1s;
+      animation-fill-mode: forwards;  
+    }
+    
+    @keyframes contact-form-hovers {
+      0% {
+        box-shadow: 2px 5px;
+        padding: 1rem;
+      }
+      20% {
+        box-shadow: 4px 10px;
+        padding: 1.04rem;
+      }
+      40% {
+        box-shadow: 6px 15px;
+        padding: 1.08rem;
+      }
+      60% {
+        box-shadow: 8px 20px;
+        padding: 1.12rem;
+      }
+      80% {
+        box-shadow: 10px 25px;
+        padding: 1.16rem;
+      }
+      100% {
+        box-shadow: 12px 30px;
+        padding: 1.2rem;
+      }
+    }
+    
+    @keyframes contact-form-unhovers {
+      0% {
+        box-shadow: 12px 30px;
+        padding: 1.2rem;
+      }
+      20% {
+        box-shadow: 10px 25px;
+        padding: 1.16rem;
+      }
+      40% {
+        box-shadow: 8px 20px;
+        padding: 1.12rem;
+      }
+      60% {
+        box-shadow: 6px 15px;
+        padding: 1.8rem;
+      }
+      80% {
+        box-shadow: 4px 10px;
+        padding: 1.4rem;
+      }
+      100% {
+        box-shadow: 2px 5px;
+        padding: 1rem;
+      }
+    }
+    
+    input, .contact-dropdown, textarea {
+      margin: 0.5rem 2rem;
+    }
+    
     p {
-      border-bottom: 1px solid rgb(54, 52, 52);
-      text-align: center;
-    }
-    
-    &:hover .dropdown-items {
-      animation: displayList 0.2s ease-in;
-      display: block;
-      cursor: pointer;
-      list-style-type: none;
-    }
-
-    .dropdown-selected {
-      color: black;
-      font-size: 1.4rem;
-    }
-
-    .dropdown-placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: grey;
-      font-size: 1rem;
-    }
-    
-    .dropdown-items > li {
-      color: rgb(54, 52, 52);
+      text-align: justify;
+      text-justify: inter-word; 
       font-size: 0.9rem;
-      margin: 0.8vh 0px;
     }
     
-    .dropdown-items > li:hover {
+    input {
+      background-color: var(--contact-form-input-background);
+      border-radius: 5px;
+      border: 0 solid black;
+      color: var(--contact-form-input-color);
+      padding: 0.8rem;
+      font-weight: bold;
+    }
+  
+    .denied {
+      border: red 1px solid;
+    }
+  
+    .access {
+      border: green 1px solid;
+    }
+    
+    .contact-dropdown {
+      background-color: var(--contact-form-input-background);
+      border-radius: 5px;
+      list-style-type: none;
+      padding: 0.8rem;
+      text-align: center;
+  
+      p {
+        border-bottom: 1px solid rgb(54, 52, 52);
+        text-align: center;
+      }
+      
+      &:hover .dropdown-items {
+        animation: displayList 0.2s ease-in;
+        display: block;
+        cursor: pointer;
+        list-style-type: none;
+      }
+  
+      .dropdown-selected {
+        color: black;
+        font-size: 1.4rem;
+      }
+  
+      .dropdown-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: grey;
+        font-size: 1rem;
+      }
+      
+      .dropdown-items > li {
+        color: rgb(54, 52, 52);
+        font-size: 0.9rem;
+        margin: 0.8vh 0px;
+      }
+      
+      .dropdown-items > li:hover {
+        background-color: var(--hover-color);
+        color: var(--h1-color);
+        font-size: 1.4rem;
+      }
+      
+      .dropdown-items {
+        display: none;
+      }
+      
+      @keyframes displayList {
+        0% { 
+          transform: translateY(10px); 
+          opacity: 0px;
+        }
+        10% { 
+          transform: translateY(9px); 
+          opacity: 0px;
+        }
+        20% { 
+          transform: translateY(8px); 
+          opacity: 0px; 
+        }
+        30% { 
+          transform: translateY(7px);
+          opacity: 1px; 
+        }
+        40% { 
+          transform: translateY(6px);
+          opacity: 2px; 
+        }
+        50% { 
+          transform: translateY(5px);
+          opacity: 2px; 
+        }
+        60% { 
+          transform: translateY(4px);
+          opacity: 3px; 
+        }
+        70% { 
+          transform: translateY(3px);
+          opacity: 4px; 
+        }
+        80% { 
+          transform: translateY(2px);
+          opacity: 5px; 
+        }
+        90% { 
+          transform: translateY(1px);
+          opacity: 5px; 
+        }
+        100% { 
+          transform: translateY(0);
+          opacity: 5px; 
+        }
+      }
+    }
+    
+    textarea {
+      background-color: var(--contact-form-input-background);
+      border-radius: 5px;
+      border: none;
+      font-family: var(--font-family);
+      height: 10vh;
+      padding: 0.5rem;
+      resize: none;
+    }
+    
+    button {
       background-color: var(--hover-color);
-      color: var(--h1-color);
-      font-size: 1.4rem;
+      border-radius: 50%;
+      border: none;
+      color: var(--header-background);
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0 auto;
+      padding: 0.5rem;
+      width: 50px;
     }
     
-    .dropdown-items {
-      display: none;
+    button:hover {
+      cursor: pointer;
+      font-size: 1.01rem;
     }
     
-    @keyframes displayList {
-      0% { 
-        transform: translateY(10px); 
-        opacity: 0px;
-      }
-      10% { 
-        transform: translateY(9px); 
-        opacity: 0px;
-      }
-      20% { 
-        transform: translateY(8px); 
-        opacity: 0px; 
-      }
-      30% { 
-        transform: translateY(7px);
-        opacity: 1px; 
-      }
-      40% { 
-        transform: translateY(6px);
-        opacity: 2px; 
-      }
-      50% { 
-        transform: translateY(5px);
-        opacity: 2px; 
-      }
-      60% { 
-        transform: translateY(4px);
-        opacity: 3px; 
-      }
-      70% { 
-        transform: translateY(3px);
-        opacity: 4px; 
-      }
-      80% { 
-        transform: translateY(2px);
-        opacity: 5px; 
-      }
-      90% { 
-        transform: translateY(1px);
-        opacity: 5px; 
-      }
-      100% { 
-        transform: translateY(0);
-        opacity: 5px; 
-      }
+    .button-success {
+      animation: highLight 2.5s linear;
+      background-color: green!important;
+    }
+    
+    @keyframes highLight {
+      0% { transform: translateY(0); }
+      10% { transform: translateY(7px); }
+      20% { transform: translateY(0); }
+      30% { transform: translateY(7px); }
+      40% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+      60% { transform: translateY(0); }
+      70% { transform: translateY(7px); }
+      80% { transform: translateY(0); }
+      90% { transform: translateY(7px); }
+      100% { transform: translateY(0); }
     }
   }
-  
-  textarea {
-    background-color: var(--contact-form-input-background);
-    border-radius: 5px;
-    border: none;
-    font-family: var(--font-family);
-    height: 10vh;
-    padding: 0.5rem;
-    resize: none;
-  }
-  
-  button {
-    background-color: var(--hover-color);
-    border-radius: 50%;
-    border: none;
-    color: var(--header-background);
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0 auto;
-    padding: 0.5rem;
-    width: 50px;
-  }
-  
-  button:hover {
-    cursor: pointer;
-    font-size: 1.01rem;
-  }
-  
-  .button-success {
-    animation: highLight 2.5s linear;
-    background-color: green!important;
-  }
-  
-  @keyframes highLight {
-    0% { transform: translateY(0); }
-    10% { transform: translateY(7px); }
-    20% { transform: translateY(0); }
-    30% { transform: translateY(7px); }
-    40% { transform: translateY(0); }
-    50% { transform: translateY(7px); }
-    60% { transform: translateY(0); }
-    70% { transform: translateY(7px); }
-    80% { transform: translateY(0); }
-    90% { transform: translateY(7px); }
-    100% { transform: translateY(0); }
-  }
+
 }
+
