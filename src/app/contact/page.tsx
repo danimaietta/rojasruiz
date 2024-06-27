@@ -76,7 +76,16 @@ export default function Contact() {
   return (
     <div className={styles['contact']}>
       <div className={styles['our-info']}>
-
+        <h1> INFORMACIÓN DE CONTACTO </h1>
+        <p> Rojas Ruiz Ingenieria Electromecánica Especializada Ltda. </p>
+        <h2> CEDULA JURÍDICA </h2>
+        <p> 3-102-569335 </p>
+        <h2> TELÉFONO </h2>
+        <p> +506 4081 1446 </p>
+        <h2> CORREO ELECTRÓNICO </h2>
+        <p> ingenieria@rojasruizing.com </p>
+        <h2> OFICINAS </h2>
+        <p> Condominio Industrial San José Ulloa, Bodega 19-2, Heredia, Heredia, Ulloa Costa Rica </p>
       </div>
       <form className={styles['contact-form']}>
         <p>
