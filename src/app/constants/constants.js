@@ -18,7 +18,7 @@ const constants = {
     ourInfo: {
         title: 'INFORMACIÓN DE CONTACTO',
         intro: 'Rojas Ruiz Ingenieria Electromecánica Especializada Ltda.',
-        idTitle: 'CEDULA JURÍDICA',
+        idTitle: 'CÉDULA JURÍDICA',
         id: ' 3-102-569335',
         phoneTitle: 'TELÉFONO',
         phone: '+506 4081 1446',

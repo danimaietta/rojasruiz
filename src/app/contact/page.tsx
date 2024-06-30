@@ -88,7 +88,7 @@ export default function Contact() {
         <p> { ourInfo.address } </p>
       </div>
       <form className={styles['contact-form']}>
-        <h1> CONTACTENOS </h1>
+        <h1> CONTÁCTENOS </h1>
         <p>
           Si necesita de nuestros servicios puede contactarnos 
           a través de nuestro formulario y nosotros le atenderemos.
