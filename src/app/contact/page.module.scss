@@ -7,30 +7,45 @@
   margin: 0;
 
   .our-info, .contact-form {
+    align-items: center;
     background-color: var(--contact-form-background);
-    border: 1.5px black solid;
     border-radius: 5px;
-    display: block;
-    margin: 0 auto 0;
+    display: flex;
+    flex-direction: column;
     height: 75vh;
+    justify-content: flex-start;
+    margin: 0 auto 0;
     width: 80%;
+
+    h1 {
+      color: var(--golden-color)
+    }
+
+    input, .contact-dropdown, textarea, button, h1, p {
+      display: block;
+      margin: 1vh auto;
+      width: 80%;
+    }
   }
 
   .our-info {
-    text-align: justify;
+    text-align: center;
 
-    h1 {
-      text-align: center;
+    h1, h2, p {
+      font-family: var(--font-family);
+      margin-top: 0.5rem;
     }
 
-    h2, p {
-      font-family: var(--font-family);
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
     }
   }
 
   .contact-form {
     animation: contact-form-unhovers 1s;
     animation-fill-mode: forwards;
+    border: 1.5px black solid;
     overflow: hidden;
   
     &:hover {
@@ -92,12 +107,6 @@
       }
     }
     
-    input, .contact-dropdown, textarea, button {
-      display: block;
-      margin: 1vh auto;
-      width: 80%;
-    }
-    
     p {
       text-align: justify;
       text-justify: inter-word; 
@@ -112,7 +121,7 @@
       border: 0 solid black;
       color: var(--contact-form-input-color);
       display: block;
-      margin: 3vh auto;
+      margin: 1.5vh auto;
       padding: 0.8rem;
       font-weight: bold;
     }

@@ -15,6 +15,18 @@ const constants = {
         visionText: 'Mediante una mejora continua, innovación, compromiso y trabajo… ofrecer a nuestros clientes el mejor servicio, soporte y eficiencia del mercado electromecánico',
     },
     numColegioIngenieros: 'cc-10371',
+    ourInfo: {
+        title: 'INFORMACIÓN DE CONTACTO',
+        intro: 'Rojas Ruiz Ingenieria Electromecánica Especializada Ltda.',
+        idTitle: 'CEDULA JURÍDICA',
+        id: ' 3-102-569335',
+        phoneTitle: 'TELÉFONO',
+        phone: '+506 4081 1446',
+        mailTitle: 'CORREO ELECTRÓNICO',
+        mail: 'ingenieria@rojasruizing.com',
+        addressTitle: 'OFICINAS',
+        address: 'Condominio Industrial San José Ulloa, Bodega 19-2, Heredia, Heredia, Ulloa Costa Rica'
+    }
 }
 
 export default constants;
