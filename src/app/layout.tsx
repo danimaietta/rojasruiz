@@ -14,8 +14,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     const [selected, setSelected] = useState<string>('aboutus')
     const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
     const { width, height } = useWindowSize();
-    const { headerOptions, headerTexts, numColegioIngenieros } = constants
-    const totalHeight = height * headerOptions.length
+    const { HEADER_OPTIONS, HEADER_TEXTS, NUM_COLEGIO_INGENIEROS } = constants
+    const totalHeight = height * HEADER_OPTIONS.length
 
     useEffect(() => {
         document.addEventListener('scroll', () => {
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                         alt='Image' 
                     />
                     </Link>
-                    <p className={styles['numColIng']}> { numColegioIngenieros } </p>
+                    <p className={styles['numColIng']}> { NUM_COLEGIO_INGENIEROS } </p>
                     <div className={styles["menu-container"]}>
                         <IoMenuSharp 
                             className={styles['icon-menu']}
@@ -64,13 +64,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                     </div>
                     <div className={`${styles['options']} ${showMobileMenu ? styles['mobileMenu'] : styles['']}`}>
                         {
-                            headerOptions.map((option, index) => {
+                            HEADER_OPTIONS.map((option, index) => {
                                 return (
                                     <span 
                                         className={`${styles['option']} ${option === selected && styles['active']}`} 
                                         onClick={scrollWindow(option)} key={index}
                                     >
-                                        {headerTexts[index]}
+                                        {HEADER_TEXTS[index]}
                                     </span> 
                                 )
                             })

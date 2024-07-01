@@ -13,7 +13,7 @@ export default function PdfView() {
   const [misionAnimation, setMisionAnimation] = useState<boolean>(false)
   const [visionAnimation, setVisionAnimation] = useState<boolean>(false)
   const { width, height } = useWindowSize();
-  const { historyTitle, historyText, missionTitle, missionText, visionTitle, visionText } = constants.nosotros
+  const { HISTORY_TITLE, HISTORY_TEXT, MISSION_TITLE, MISSION_TEXT, VISION_TITLE, VISION_TEXT } = constants.NOSOTROS
 
   useEffect(() => {
     document.addEventListener('scroll', () => {
@@ -32,18 +32,18 @@ export default function PdfView() {
     <div className={styles['nosotros']}>
         <Image className={styles['image']} src={historia} alt="historia"/>
         <div>
-          <h1 className={styles['animation']}> { historyTitle } </h1>
-          <p className={styles['animation']}> { historyText } </p>
+          <h1 className={styles['animation']}> { HISTORY_TITLE } </h1>
+          <p className={styles['animation']}> { HISTORY_TEXT } </p>
         </div>
         <div>
-          <h1 className={styles[misionAnimation ? 'animation' : '']}> { missionTitle } </h1>
-          <p className={styles[misionAnimation ? 'animation' : '']}> { missionText } </p>
+          <h1 className={styles[misionAnimation ? 'animation' : '']}> { MISSION_TITLE } </h1>
+          <p className={styles[misionAnimation ? 'animation' : '']}> { MISSION_TEXT } </p>
         </div>
         <Image className={styles['image']} src={mision} alt="mision"/>
         <Image className={styles['image']} src={vision} alt="vision"/>
         <div>
-          <h1 className={styles[visionAnimation ? 'animation' : '']}> { visionTitle } </h1>
-          <p className={styles[visionAnimation ? 'animation' : '']}> { visionText } </p>
+          <h1 className={styles[visionAnimation ? 'animation' : '']}> { VISION_TITLE } </h1>
+          <p className={styles[visionAnimation ? 'animation' : '']}> { VISION_TEXT } </p>
         </div>
     </div>
   )

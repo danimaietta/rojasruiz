@@ -39,7 +39,7 @@ interface OurInfoAction {
 export default function Contact() {
   const [displaySuccess, setDisplaySuccess] = useState<boolean>(false)
   const dropDownClicked = useRef(false)
-  const { contactDropdownOptions, maxCharacters, regexString, regexNumber, regexMail, OUR_INFO } = constants
+  const { CONTACT_DROPDOWN_OPTIONS, MAX_CHARACTERS, REGEX_STRING, REGEX_NUMBER, REGEX_MAIL, OUR_INFO } = constants
 
   const [ourInfo, dispatchOurInfo] = useReducer(ourInfoReducer, {
     isNameCopied: false,
@@ -99,9 +99,9 @@ export default function Contact() {
       userInfo.name.length > 5 && userInfo.mail.length > 10 && userInfo.phone.length > 7){
         setDisplaySuccess(true) // send email
     }
-    !userInfo.name.match(regexString) ? dispatchUserInfo({ type: 'name-success', userInfo }) : dispatchUserInfo({ type: 'name-denied', userInfo })
-    !userInfo.phone.match(regexNumber) ? dispatchUserInfo({ type: 'phone-success', userInfo }) : dispatchUserInfo({ type: 'phone-denied', userInfo })
-    !userInfo.mail.match(regexMail) ? dispatchUserInfo({ type: 'mail-success', userInfo }) : dispatchUserInfo({ type: 'mail-denied', userInfo })
+    !userInfo.name.match(REGEX_STRING) ? dispatchUserInfo({ type: 'name-success', userInfo }) : dispatchUserInfo({ type: 'name-denied', userInfo })
+    !userInfo.phone.match(REGEX_NUMBER) ? dispatchUserInfo({ type: 'phone-success', userInfo }) : dispatchUserInfo({ type: 'phone-denied', userInfo })
+    !userInfo.mail.match(REGEX_MAIL) ? dispatchUserInfo({ type: 'mail-success', userInfo }) : dispatchUserInfo({ type: 'mail-denied', userInfo })
   }
 
   const changeDropdownTitle = (option: string): void => {
@@ -111,10 +111,10 @@ export default function Contact() {
 
   const copyText = (text: string) => {
     navigator.clipboard.writeText(text)
-    if(text === OUR_INFO.id) dispatchOurInfo({ type: 'name-copied', ourInfo })
-    if(text === OUR_INFO.mail) dispatchOurInfo({ type: 'mail-copied', ourInfo })
-    if(text === OUR_INFO.phone) dispatchOurInfo({ type: 'phone-copied', ourInfo })
-    if(text === OUR_INFO.address) dispatchOurInfo({ type: 'address-copied', ourInfo })
+    if(text === OUR_INFO.ID) dispatchOurInfo({ type: 'name-copied', ourInfo })
+    if(text === OUR_INFO.MAIL) dispatchOurInfo({ type: 'mail-copied', ourInfo })
+    if(text === OUR_INFO.PHONE) dispatchOurInfo({ type: 'phone-copied', ourInfo })
+    if(text === OUR_INFO.ADDRESS) dispatchOurInfo({ type: 'address-copied', ourInfo })
   }
 
   console.count('contact renders: ')
@@ -122,30 +122,30 @@ export default function Contact() {
   return (
     <div className={styles['contact']}>
       <div className={styles['our-info']}>
-        <h1> {OUR_INFO.title } </h1>
-        <p> { OUR_INFO.intro } </p>
-        <h2> { OUR_INFO.idTitle } </h2>
+        <h1> {OUR_INFO.TITLE } </h1>
+        <p> { OUR_INFO.INTRO } </p>
+        <h2> { OUR_INFO.ID_TITLE } </h2>
         <div>
-          <p> { OUR_INFO.id } </p> 
-          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.id)} />
+          <p> { OUR_INFO.ID } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.ID)} />
           { ourInfo.isNameCopied && <p className={styles['copied']}> copiado </p> }
         </div>
-        <h2> { OUR_INFO.phoneTitle } </h2>
+        <h2> { OUR_INFO.PHONE_TITLE } </h2>
         <div>
-          <p> { OUR_INFO.phone } </p> 
-          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.phone)} />
+          <p> { OUR_INFO.PHONE } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.PHONE)} />
           { ourInfo.isPhoneCopied && <p className={styles['copied']}> copiado </p> }
         </div>
-        <h2> { OUR_INFO.mailTitle } </h2>
+        <h2> { OUR_INFO.MAIL_TITLE } </h2>
         <div>
-          <p> { OUR_INFO.mail } </p> 
-          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.mail)} />
+          <p> { OUR_INFO.MAIL } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.MAIL)} />
           { ourInfo.isMailCopied && <p className={styles['copied']}> copiado </p> }
         </div>
-        <h2> { OUR_INFO.addressTitle } </h2>
+        <h2> { OUR_INFO.ADDRESS_TITLE } </h2>
         <div>
-          <p> { OUR_INFO.address } </p> 
-          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.address)} />
+          <p> { OUR_INFO.ADDRESS } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.ADDRESS)} />
           { ourInfo.isAddressCopied && <p className={styles['copied']}> copiado </p> }
         </div>
         <FaSquareWhatsapp className={`${styles['icon']} ${styles['icon-whatsapp']}`} />
@@ -183,7 +183,7 @@ export default function Contact() {
           </p>
           <ul className={styles['dropdown-items']}>
             {
-              contactDropdownOptions.map((option, index) => {
+              CONTACT_DROPDOWN_OPTIONS.map((option, index) => {
                 return (
                   <li key={index} onClick={() => changeDropdownTitle(option)} className={styles['']}> 
                     { option } 
@@ -193,7 +193,7 @@ export default function Contact() {
             }
           </ul>
         </li>
-        <textarea placeholder='Dejenos un mensaje' maxLength={maxCharacters}></textarea>
+        <textarea placeholder='Dejenos un mensaje' maxLength={MAX_CHARACTERS}></textarea>
         <button className={displaySuccess ? styles['button-success'] : ''} onClick={e => sendEmail(e)}>
           <IoIosMail className={displaySuccess ? styles['icon-success'] : ''}/>
         </button>
