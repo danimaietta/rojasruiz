@@ -30,10 +30,10 @@
 }
 
 .numColIng {
-  position: relative;
-  top: 4vh;
-  right: 10vw;
   font-size: 0.9rem;
+  position: relative;
+  right: 10vw;
+  top: 4vh;
 }
 
 .logo {
@@ -131,17 +131,4 @@
   background-color: var(--footer-background);
   color: white;
   display: flex;
-}
-
-.icon {
-  color: white;
-  cursor: pointer;
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-.icon-whatsapp:hover {
-  color: var(--text-whatsapp);
-  height: 1.7rem;
-  width: 1.7rem;
 }

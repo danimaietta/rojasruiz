@@ -1,8 +1,10 @@
 'use client'
 
 import styles from './page.module.scss'
-import React, { useState, useRef, useReducer } from 'react'
+import React, { useState, useEffect, useRef, useReducer } from 'react'
 import { IoIosMail } from "react-icons/io";
+import { FaSquareWhatsapp } from 'react-icons/fa6';
+import { FaCopy } from "react-icons/fa";
 import constants from '@app/constants/constants'
 
 interface State {
@@ -13,6 +15,9 @@ interface State {
   isMail: boolean,
   isPhone: boolean,
   isClicked: boolean,
+  isNameCopied: boolean,
+  isMailCopied: boolean,
+  isPhoneCopied: boolean,
   dropdownTitle: string
 }
 
@@ -34,6 +39,9 @@ export default function Contact() {
     isName: false,
     isMail: false,
     isPhone: false,
+    isNameCopied: false,
+    isMailCopied: false,
+    isPhoneCopied: false,
     isClicked: false,
     dropdownTitle: '¿Qué servicio necesita?'
   })
@@ -43,16 +51,24 @@ export default function Contact() {
       case 'name-update': return { ...state, name: action.inputs.name }
       case 'name-denied': return { ...state, isName: false }
       case 'name-success': return { ...state, isName: true }
+      case 'name-copied': return { ...state, isNameCopied: true }
       case 'mail-update': return { ...state, mail: action.inputs.mail }
       case 'mail-denied': return { ...state, isMail: false }
       case 'mail-success': return { ...state, isMail: true }
+      case 'mail-copied': return { ...state, isMailCopied: true }
       case 'phone-update': return { ...state, phone: action.inputs.phone }
       case 'phone-denied': return { ...state, isPhone: false }
       case 'phone-success': return { ...state, isPhone: true }
+      case 'phone-copied': return { ...state, isPhoneCopied: true }
+      case 'un-copied': return { ...state, isNameCopied: false, isMailCopied: false, isPhoneCopied: false }
       case 'select-dropdown': return { ...state, dropdownTitle: action?.inputs?.dropdownTitle || '' }
       default: return { ...state }
     }
   }
+
+  useEffect(() => {
+    dispatch({ type: 'un-copied', inputs })
+  })
 
   const sendEmail = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault()
@@ -73,19 +89,40 @@ export default function Contact() {
 
   console.count('contact renders: ')
 
+  const copyText = (text: string) => {
+    navigator.clipboard.writeText(text)
+    if(text === ourInfo.id) dispatch({ type: 'name-copied', inputs })
+    if(text === ourInfo.mail) dispatch({ type: 'mail-copied', inputs })
+    if(text === ourInfo.phone) dispatch({ type: 'phone-copied', inputs })
+  }
+
   return (
     <div className={styles['contact']}>
       <div className={styles['our-info']}>
         <h1> {ourInfo.title } </h1>
         <p> { ourInfo.intro } </p>
         <h2> { ourInfo.idTitle } </h2>
-        <p> { ourInfo.id } </p>
+        <div>
+          <p> { ourInfo.id } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(ourInfo.id)} />
+          { inputs.isNameCopied && <p className={styles['copied']}> copiado </p> }
+        </div>
         <h2> { ourInfo.phoneTitle } </h2>
-        <p> { ourInfo.phone } </p>
-        <h2> { ourInfo.mailTitle} </h2>
-        <p> { ourInfo.mail } </p>
+        <div>
+          <p> { ourInfo.phone } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(ourInfo.phone)} />
+        </div>
+        <h2> { ourInfo.mailTitle } </h2>
+        <div>
+          <p> { ourInfo.mail } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(ourInfo.mail)} />
+        </div>
         <h2> { ourInfo.addressTitle } </h2>
-        <p> { ourInfo.address } </p>
+        <div>
+          <p> { ourInfo.address } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(ourInfo.address)} />
+        </div>
+        <FaSquareWhatsapp className={`${styles['icon']} ${styles['icon-whatsapp']}`} />
       </div>
       <form className={styles['contact-form']}>
         <h1> CONTÁCTENOS </h1>

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './page.module.scss'
 import Link from 'next/link'
-import { FaSquareWhatsapp } from 'react-icons/fa6';
 import { IoMenuSharp } from "react-icons/io5";
 import Image from 'next/image'
 import './globals.scss'
@@ -80,7 +79,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 </div>
                 {children}
                 <div className={styles['footer']}>
-                <FaSquareWhatsapp className={`${styles['icon']} ${styles['icon-whatsapp']}`} />
                     <p>© 2021 Rojas Ruiz</p>
                 </div>
             </body>

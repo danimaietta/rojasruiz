@@ -8,16 +8,17 @@
 
   .our-info, .contact-form {
     align-items: center;
+    animation-fill-mode: forwards;
+    animation: contact-form-unhovers 1s;
     background-color: var(--contact-form-background);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    font-family: 'Montserrat', arial, sans-serif;
     height: 75vh;
     justify-content: flex-start;
     margin: 0 auto 0;
-    width: 80%;
-    animation: contact-form-unhovers 1s;
-    animation-fill-mode: forwards;
+    width: 85%;
 
     &:hover {
       animation: contact-form-hovers 1s;
@@ -27,54 +28,42 @@
     @keyframes contact-form-hovers {
       0% {
         box-shadow: 2px 5px;
-        padding: 1rem;
       }
       20% {
         box-shadow: 4px 10px;
-        padding: 1.04rem;
       }
       40% {
         box-shadow: 6px 15px;
-        padding: 1.08rem;
       }
       60% {
         box-shadow: 8px 20px;
-        padding: 1.12rem;
       }
       80% {
         box-shadow: 10px 25px;
-        padding: 1.16rem;
       }
       100% {
         box-shadow: 12px 30px;
-        padding: 1.2rem;
       }
     }
     
     @keyframes contact-form-unhovers {
       0% {
         box-shadow: 12px 30px;
-        padding: 1.2rem;
       }
       20% {
         box-shadow: 10px 25px;
-        padding: 1.16rem;
       }
       40% {
         box-shadow: 8px 20px;
-        padding: 1.12rem;
       }
       60% {
         box-shadow: 6px 15px;
-        padding: 1.8rem;
       }
       80% {
         box-shadow: 4px 10px;
-        padding: 1.4rem;
       }
       100% {
         box-shadow: 2px 5px;
-        padding: 1rem;
       }
     }
 
@@ -82,7 +71,7 @@
       color: var(--golden-color)
     }
 
-    input, .contact-dropdown, textarea, button, h1, p {
+    input, .contact-dropdown, textarea, button, h1, p, div {
       display: block;
       margin: 1vh auto;
       width: 80%;
@@ -98,8 +87,32 @@
     }
 
     p {
+      display: inline;
       margin-bottom: 1rem;
       font-size: 1.1rem;
+    }
+  
+    .copied {
+      animation: copied 2s ease-in;
+      animation-fill-mode: forwards;
+      color: green;
+    }
+  
+    @keyframes copied {
+      0% { opacity: 0; }
+      10% { opacity: 0.2; }
+      20% { opacity: 0.4; }
+      30% { opacity: 0.6; }
+      40% { opacity: 0.8; }
+      50% { opacity: 1; }
+      60% { opacity: 0.8; }
+      70% { opacity: 0.6; }
+      80% { opacity: 0.4; }
+      90% { opacity: 0.2; }
+      100% { 
+        display: none;
+        opacity: 0; 
+      }
     }
   }
 
@@ -108,10 +121,10 @@
     overflow: hidden;
     
     p {
-      text-align: justify;
-      text-justify: inter-word; 
       font-size: 0.9rem;
       margin: 0 auto;
+      text-align: justify;
+      text-justify: inter-word; 
       width: 80%;
     }
     
@@ -121,9 +134,9 @@
       border: 0 solid black;
       color: var(--contact-form-input-color);
       display: block;
+      font-weight: bold;
       margin: 1.5vh auto;
       padding: 0.8rem;
-      font-weight: bold;
     }
   
     .denied {
@@ -159,11 +172,11 @@
       }
   
       .dropdown-placeholder {
-        display: flex;
         align-items: center;
-        justify-content: center;
         color: grey;
+        display: flex;
         font-size: 1rem;
+        justify-content: center;
       }
       
       .dropdown-items > li {
@@ -275,6 +288,32 @@
       90% { transform: translateY(7px); }
       100% { transform: translateY(0); }
     }
+  }
+
+  .icon {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+  }
+
+  .icon-whatsapp {
+    height: 2.9rem;
+    margin-top: 3vh;
+    width: 2.9rem;
+  }
+
+  .copy-icon {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+
+  .copy-icon:hover {
+    color: var(--golden-color);
+  }
+  
+  .icon-whatsapp:hover {
+    color: var(--text-whatsapp);
+    height: 3rem;
+    width: 3rem;
   }
 
 }
