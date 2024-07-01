@@ -83,12 +83,16 @@
 
     h1, h2, p {
       font-family: var(--font-family);
-      margin-top: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    h1 {
+      font-size: 1.9rem;
     }
 
     p {
       display: inline;
-      margin-bottom: 1rem;
+      margin-bottom: 1vh;
       font-size: 1.1rem;
     }
   

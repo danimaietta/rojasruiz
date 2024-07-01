@@ -6,12 +6,13 @@
         margin: 5vw;
 
         p {
-            color: var(--h1-color);
+            color: black;
             font-family: var(--font-family);
             font-weight: 700;
             font-size: 1.75rem;
             position: absolute;
             text-align: center;
+            z-index: 1;
         }
         
         p:nth-child(1) {

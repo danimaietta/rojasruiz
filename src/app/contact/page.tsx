@@ -7,7 +7,7 @@ import { FaSquareWhatsapp } from 'react-icons/fa6';
 import { FaCopy } from "react-icons/fa";
 import constants from '@app/constants/constants'
 
-interface State {
+interface UserInfoState {
   name: string,
   mail: string,
   phone: string,
@@ -15,112 +15,138 @@ interface State {
   isMail: boolean,
   isPhone: boolean,
   isClicked: boolean,
-  isNameCopied: boolean,
-  isMailCopied: boolean,
-  isPhoneCopied: boolean,
   dropdownTitle: string
 }
 
-interface Action {
+interface UserInfoAction {
   type: string,
-  inputs: State,
+  userInfo: UserInfoState,
   error?: string
+}
+
+interface OurInfoState {
+  isNameCopied: boolean,
+  isMailCopied: boolean,
+  isPhoneCopied: boolean,
+  isAddressCopied: boolean,
+}
+
+interface OurInfoAction {
+  type: string,
+  ourInfo: OurInfoState,
 }
 
 export default function Contact() {
   const [displaySuccess, setDisplaySuccess] = useState<boolean>(false)
   const dropDownClicked = useRef(false)
-  const { contactDropdownOptions, maxCharacters, regexString, regexNumber, regexMail, ourInfo } = constants
+  const { contactDropdownOptions, maxCharacters, regexString, regexNumber, regexMail, OUR_INFO } = constants
 
-  const [inputs, dispatch] = useReducer(reducer, {
+  const [ourInfo, dispatchOurInfo] = useReducer(ourInfoReducer, {
+    isNameCopied: false,
+    isMailCopied: false,
+    isPhoneCopied: false,
+    isAddressCopied: false,
+  })
+
+  const [userInfo, dispatchUserInfo] = useReducer(userInfoReducer, {
     name: '',
     mail: '',
     phone: '',
     isName: false,
     isMail: false,
     isPhone: false,
-    isNameCopied: false,
-    isMailCopied: false,
-    isPhoneCopied: false,
     isClicked: false,
     dropdownTitle: '¿Qué servicio necesita?'
   })
 
-  function reducer(state: State, action: Action): State {
+  function ourInfoReducer(state: OurInfoState, action: OurInfoAction): OurInfoState {
     switch (action.type){
-      case 'name-update': return { ...state, name: action.inputs.name }
+      case 'name-copied': return { ...state, isNameCopied: true }
+      case 'mail-copied': return { ...state, isMailCopied: true }
+      case 'phone-copied': return { ...state, isPhoneCopied: true }
+      case 'address-copied': return { ...state, isAddressCopied: true }
+      case 'un-copied': return { ...state, isNameCopied: false, isMailCopied: false, isPhoneCopied: false, isAddressCopied: false}
+      default: return { ...state }
+    }
+  }
+
+  function userInfoReducer(state: UserInfoState, action: UserInfoAction): UserInfoState {
+    switch (action.type){
+      case 'name-update': return { ...state, name: action.userInfo.name }
       case 'name-denied': return { ...state, isName: false }
       case 'name-success': return { ...state, isName: true }
-      case 'name-copied': return { ...state, isNameCopied: true }
-      case 'mail-update': return { ...state, mail: action.inputs.mail }
+      case 'mail-update': return { ...state, mail: action.userInfo.mail }
       case 'mail-denied': return { ...state, isMail: false }
       case 'mail-success': return { ...state, isMail: true }
-      case 'mail-copied': return { ...state, isMailCopied: true }
-      case 'phone-update': return { ...state, phone: action.inputs.phone }
+      case 'phone-update': return { ...state, phone: action.userInfo.phone }
       case 'phone-denied': return { ...state, isPhone: false }
       case 'phone-success': return { ...state, isPhone: true }
-      case 'phone-copied': return { ...state, isPhoneCopied: true }
-      case 'un-copied': return { ...state, isNameCopied: false, isMailCopied: false, isPhoneCopied: false }
-      case 'select-dropdown': return { ...state, dropdownTitle: action?.inputs?.dropdownTitle || '' }
+      case 'select-dropdown': return { ...state, dropdownTitle: action?.userInfo?.dropdownTitle || '' }
       default: return { ...state }
     }
   }
 
   useEffect(() => {
-    dispatch({ type: 'un-copied', inputs })
+    if(ourInfo.isNameCopied || ourInfo.isMailCopied || ourInfo.isPhoneCopied){
+      //dispatchOurInfo({ type: 'un-copied', userInfo })
+    }
   })
 
   const sendEmail = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault()
-    if(!inputs.isName && !inputs.isMail && !inputs.isPhone && 
-      inputs.name !== '' && inputs.mail !== '' && inputs.phone !== '' &&
-      inputs.name.length > 5 && inputs.mail.length > 10 && inputs.phone.length > 7){
+    if(!userInfo.isName && !userInfo.isMail && !userInfo.isPhone && 
+      userInfo.name !== '' && userInfo.mail !== '' && userInfo.phone !== '' &&
+      userInfo.name.length > 5 && userInfo.mail.length > 10 && userInfo.phone.length > 7){
         setDisplaySuccess(true) // send email
     }
-    !inputs.name.match(regexString) ? dispatch({ type: 'name-success', inputs }) : dispatch({ type: 'name-denied', inputs })
-    !inputs.phone.match(regexNumber) ? dispatch({ type: 'phone-success', inputs }) : dispatch({ type: 'phone-denied', inputs })
-    !inputs.mail.match(regexMail) ? dispatch({ type: 'mail-success', inputs }) : dispatch({ type: 'mail-denied', inputs })
+    !userInfo.name.match(regexString) ? dispatchUserInfo({ type: 'name-success', userInfo }) : dispatchUserInfo({ type: 'name-denied', userInfo })
+    !userInfo.phone.match(regexNumber) ? dispatchUserInfo({ type: 'phone-success', userInfo }) : dispatchUserInfo({ type: 'phone-denied', userInfo })
+    !userInfo.mail.match(regexMail) ? dispatchUserInfo({ type: 'mail-success', userInfo }) : dispatchUserInfo({ type: 'mail-denied', userInfo })
   }
 
   const changeDropdownTitle = (option: string): void => {
     dropDownClicked.current = true
-    dispatch({ type: 'select-dropdown', inputs: { ...inputs, dropdownTitle: option } })
+    dispatchUserInfo({ type: 'select-dropdown', userInfo: { ...userInfo, dropdownTitle: option } })
+  }
+
+  const copyText = (text: string) => {
+    navigator.clipboard.writeText(text)
+    if(text === OUR_INFO.id) dispatchOurInfo({ type: 'name-copied', ourInfo })
+    if(text === OUR_INFO.mail) dispatchOurInfo({ type: 'mail-copied', ourInfo })
+    if(text === OUR_INFO.phone) dispatchOurInfo({ type: 'phone-copied', ourInfo })
+    if(text === OUR_INFO.address) dispatchOurInfo({ type: 'address-copied', ourInfo })
   }
 
   console.count('contact renders: ')
 
-  const copyText = (text: string) => {
-    navigator.clipboard.writeText(text)
-    if(text === ourInfo.id) dispatch({ type: 'name-copied', inputs })
-    if(text === ourInfo.mail) dispatch({ type: 'mail-copied', inputs })
-    if(text === ourInfo.phone) dispatch({ type: 'phone-copied', inputs })
-  }
-
   return (
     <div className={styles['contact']}>
       <div className={styles['our-info']}>
-        <h1> {ourInfo.title } </h1>
-        <p> { ourInfo.intro } </p>
-        <h2> { ourInfo.idTitle } </h2>
+        <h1> {OUR_INFO.title } </h1>
+        <p> { OUR_INFO.intro } </p>
+        <h2> { OUR_INFO.idTitle } </h2>
         <div>
-          <p> { ourInfo.id } </p> 
-          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(ourInfo.id)} />
-          { inputs.isNameCopied && <p className={styles['copied']}> copiado </p> }
+          <p> { OUR_INFO.id } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.id)} />
+          { ourInfo.isNameCopied && <p className={styles['copied']}> copiado </p> }
         </div>
-        <h2> { ourInfo.phoneTitle } </h2>
+        <h2> { OUR_INFO.phoneTitle } </h2>
         <div>
-          <p> { ourInfo.phone } </p> 
-          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(ourInfo.phone)} />
+          <p> { OUR_INFO.phone } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.phone)} />
+          { ourInfo.isPhoneCopied && <p className={styles['copied']}> copiado </p> }
         </div>
-        <h2> { ourInfo.mailTitle } </h2>
+        <h2> { OUR_INFO.mailTitle } </h2>
         <div>
-          <p> { ourInfo.mail } </p> 
-          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(ourInfo.mail)} />
+          <p> { OUR_INFO.mail } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.mail)} />
+          { ourInfo.isMailCopied && <p className={styles['copied']}> copiado </p> }
         </div>
-        <h2> { ourInfo.addressTitle } </h2>
+        <h2> { OUR_INFO.addressTitle } </h2>
         <div>
-          <p> { ourInfo.address } </p> 
-          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(ourInfo.address)} />
+          <p> { OUR_INFO.address } </p> 
+          <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.address)} />
+          { ourInfo.isAddressCopied && <p className={styles['copied']}> copiado </p> }
         </div>
         <FaSquareWhatsapp className={`${styles['icon']} ${styles['icon-whatsapp']}`} />
       </div>
@@ -131,29 +157,29 @@ export default function Contact() {
           a través de nuestro formulario y nosotros le atenderemos.
         </p>
         <input 
-          className={inputs.isName ? styles['denied'] : styles['access']}
+          className={userInfo.isName ? styles['denied'] : styles['access']}
           type='text' 
           placeholder='Nombre'
-          onChange={e => dispatch({ type: 'name-update', inputs: { ...inputs, name: e.target.value}})} required>
+          onChange={e => dispatchUserInfo({ type: 'name-update', userInfo: { ...userInfo, name: e.target.value}})} required>
         </input>
-        { inputs.isName && <p> * nombre solo puede contener letras </p> }
+        { userInfo.isName && <p> * nombre solo puede contener letras </p> }
         <input 
-         className={inputs.isMail ? styles['denied'] : styles['access']}
+         className={userInfo.isMail ? styles['denied'] : styles['access']}
          type='text' 
           placeholder='Correo'
-          onChange={e => dispatch({ type: 'mail-update', inputs: { ...inputs, mail: e.target.value}})} required></input>
-        { inputs.isMail && <p> * correo no válido </p> }
+          onChange={e => dispatchUserInfo({ type: 'mail-update', userInfo: { ...userInfo, mail: e.target.value}})} required></input>
+        { userInfo.isMail && <p> * correo no válido </p> }
         <input 
-         className={inputs.isPhone ? styles['denied'] : styles['access']}
+         className={userInfo.isPhone ? styles['denied'] : styles['access']}
          type='text' 
           placeholder='Teléfono'
-          onChange={e => dispatch({ type: 'phone-update', inputs: { ...inputs, phone: e.target.value}})} required></input>
-        { inputs.isPhone && <p> * teléfono solo puede contener números </p> }
+          onChange={e => dispatchUserInfo({ type: 'phone-update', userInfo: { ...userInfo, phone: e.target.value}})} required></input>
+        { userInfo.isPhone && <p> * teléfono solo puede contener números </p> }
         <li className={styles['contact-dropdown']}>
           <p 
             className={dropDownClicked.current ? styles['dropdown-selected'] : styles['dropdown-placeholder']}
           > 
-            { inputs.dropdownTitle } 
+            { userInfo.dropdownTitle } 
           </p>
           <ul className={styles['dropdown-items']}>
             {
