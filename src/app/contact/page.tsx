@@ -128,25 +128,25 @@ export default function Contact() {
         <div>
           <p> { OUR_INFO.ID } </p> 
           <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.ID)} />
-          { ourInfo.isNameCopied && <p className={styles['copied']}> copiado </p> }
+          { ourInfo.isNameCopied && <p className={styles['copied']}> { OUR_INFO.COPIED } </p> }
         </div>
         <h2> { OUR_INFO.PHONE_TITLE } </h2>
         <div>
           <p> { OUR_INFO.PHONE } </p> 
           <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.PHONE)} />
-          { ourInfo.isPhoneCopied && <p className={styles['copied']}> copiado </p> }
+          { ourInfo.isPhoneCopied && <p className={styles['copied']}> { OUR_INFO.COPIED } </p> }
         </div>
         <h2> { OUR_INFO.MAIL_TITLE } </h2>
         <div>
           <p> { OUR_INFO.MAIL } </p> 
           <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.MAIL)} />
-          { ourInfo.isMailCopied && <p className={styles['copied']}> copiado </p> }
+          { ourInfo.isMailCopied && <p className={styles['copied']}> { OUR_INFO.COPIED } </p> }
         </div>
         <h2> { OUR_INFO.ADDRESS_TITLE } </h2>
         <div>
           <p> { OUR_INFO.ADDRESS } </p> 
           <FaCopy className={`${styles['copy-icon']} ${styles['icon']}`} onClick={() => copyText(OUR_INFO.ADDRESS)} />
-          { ourInfo.isAddressCopied && <p className={styles['copied']}> copiado </p> }
+          { ourInfo.isAddressCopied && <p className={styles['copied']}> { OUR_INFO.COPIED } </p> }
         </div>
         <FaSquareWhatsapp className={`${styles['icon']} ${styles['icon-whatsapp']}`} />
       </div>
